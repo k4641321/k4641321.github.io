@@ -182,7 +182,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E6%B4%97%E8%A1%A3%E6%9C%BA/" style="color: #00bcd4">
+                <a href="/tags/%E6%B4%97%E8%A1%A3%E6%9C%BA/" style="color: #00a596">
                     洗衣机
                 </a>
             </span>
@@ -202,19 +202,22 @@
 </code></pre>
 <p>上面不是帮助提升的原始输出，稍微试着汉化了一下  </p>
 <p>用Hex编辑器打开XXXX.BIN文件，文件原本只要一行，加入第二行NTFS文件头<code>EB 52 90 4E 54 46 53 20 20 20 20 00 10 01 00 00</code>，cmd运行下面命令：</p>
-<pre><code>fsdecrypt.exe SDEZ.BIN 0x200000 SDEZ.app SDEZ1.vhd
+<pre><code>fsdecrypt.exe SDEZ.BIN 0x200000 SDEZ.app out.vhd
 </code></pre>
-<p>输出的<code>SDEZ1.app</code>并不是真正的vhd文件，这只是解密的第一步  </p>
+<blockquote>
+<p>后面发现好像必须是out.vhd，除非有能力手动更改<code>calculate_iv.py</code>里的部分</p>
+</blockquote>
+<p>输出的<code>out.vhd</code>并不是真正的vhd文件，这只是解密的第一步  </p>
 <p>接着我们进入<code>tools/Filesystem/calculate_iv/</code>文件夹，把刚刚的SDEZ1.app复制&#x2F;剪切过去(如果你有技术可以改改<code>calculate_iv.py</code>文件自定义路径),<br>运行cmd，输入：</p>
 <pre><code>python calculate_iv.py
 </code></pre>
 <p>从输出的内容中找到<code>key1</code>，复制下来，打开刚刚用到的SDEZ.BIN，删除之前的<code>EB 52 90 4E 54 46 53 20 20 20 20 00 10 01 00 00</code>，把<code>key1</code>粘贴上去，再次运行：</p>
 <blockquote>
-<p>刚刚的<code>SDEZ1.vhd</code>已经没用了，可以删了  </p>
+<p>刚刚的<code>out.vhd</code>已经没用了，可以删了  </p>
 </blockquote>
 <pre><code>fsdecrypt.exe SDEZ.BIN 0x200000 SDEZ.app SDEZ2.vhd
 </code></pre>
-<p>等到运行结束，用<a href="https://sourceforge.net/projects/imdisk-toolkit/">Imdisk</a>挂载<code>SDEZ2.vhd</code>，将里面的vhd文件复制出来，装载，就可以运行了，后面的<code>segatools</code>请自行寻找</p>
+<p>等到运行结束，用<a href="https://sourceforge.net/projects/imdisk-toolkit/">Imdisk</a>挂载新的<code>out.vhd</code>，将里面的vhd文件复制出来，装载，就可以运行了，后面的<code>segatools</code>请自行寻找</p>
 
     </div>
     
