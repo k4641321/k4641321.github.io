@@ -202,7 +202,7 @@
     
     <div class="content" v-pre>
         <p>最近研究神秘东西上头了，但不想花太多钱下去，经过一番网上寻找，终于成功运行  </p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p><em>本文章不提供全部文件，请自行寻找，不做技术支持,本文章仅做经验分享</em><br>默认你已经有必要的东西，在开始之前，你需要预留100G左右的空间  </p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p><strong>本文章不提供全部文件，请自行寻找，不做技术支持,本文章仅做经验分享</strong><br>默认你已经有必要的东西，在开始之前，你需要预留100G左右的空间  </p>
 <p>首先你需要到<a href="https://gitdab.com/SEGA/sega">这里</a>获取解密所需要的文件，还要一个python环境  </p>
 <p>创建一个文件，作为工作区，把<code>tools/Filesystem/fsdecrypt.exe</code>复制进去，当然你也可以把要解密的东西直接扔进tools&#x2F;Filesystem，你还可以直接cmd里运行fsdecrypt.exe  </p>
 <p>然后你需要找到解密所需的AES KEY，在<code>keys/AES128_Nu_ALLS</code>下，找到<code>XXXX.BIN</code>的文件，你可以复制到<code>tools/Filesystem/</code>下，也可以不复制，这以<code>SDEZ.app</code>演示  </p>
@@ -227,6 +227,14 @@
 <pre><code>fsdecrypt.exe SDEZ.BIN 0x200000 SDEZ.app SDEZ2.vhd
 </code></pre>
 <p>等到运行结束，用<a href="https://sourceforge.net/projects/imdisk-toolkit/">Imdisk</a>挂载新的<code>out.vhd</code>，将里面的vhd文件复制出来，装载，就可以运行了，后面的<code>segatools</code>请自行寻找</p>
+<h3 id="OPT"><a href="#OPT" class="headerlink" title="OPT"></a>OPT</h3><p>opt 镜像用的是 <code>tools/Filesystem</code> 中的 <code>fstool.exe</code>，<code>keys/AES128_Nu_ALLS</code> 中的 <code>OPT.bin</code></p>
+<p>命令如下</p>
+<pre><code>fstool.exe dec OPT.bin file.opt out.vhd
+</code></pre>
+<p>得到的是一个 exFAT 格式的原始镜像。提取其中的文件可以使用 PowerISO 来解压</p>
+<blockquote>
+<p>提防PowerISO<strong>装捆绑软件</strong>，你也可以选择装了exFAT插件的7z</p>
+</blockquote>
 <h4 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h4><p><a href="https://gzx7301.github.io/2024/10/15/%E6%9F%90%E6%B8%B8%E6%88%8F%E6%9B%B4%E6%96%B0%E6%96%87%E4%BB%B6%E8%A7%A3%E5%AF%86%E6%96%B9%E6%B3%95%E8%AE%B0%E5%BD%95/">单机游戏资源解密方法记录</a></p>
 <p><a href="https://nyac.at/posts/from-app-to-playable-game">从 .APP 到可以运行的游戏 </a></p>
 
