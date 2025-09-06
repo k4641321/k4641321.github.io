@@ -191,7 +191,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E6%B4%97%E8%A1%A3%E6%9C%BA/" style="color: #ff7d73">
+                <a href="/tags/%E6%B4%97%E8%A1%A3%E6%9C%BA/" style="color: #00bcd4">
                     洗衣机
                 </a>
             </span>
@@ -209,7 +209,9 @@
 <h2 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h2><p>运行cmd，进入你的工作目录，快捷一点就是路径栏里直接敲cmd，输入<code>fsdecrypt.exe</code>可以获取到帮助提示  </p>
 <pre><code>fsdecrypt.exe [密钥] [offset偏移量] [输入] [输出]
 </code></pre>
-<p>上面不是帮助提升的原始输出，稍微试着汉化了一下  </p>
+<blockquote>
+<p>上面不是帮助的原始输出，稍微试着汉化了一下  </p>
+</blockquote>
 <p>用Hex编辑器打开XXXX.BIN文件，文件原本只要一行，加入第二行NTFS文件头<code>EB 52 90 4E 54 46 53 20 20 20 20 00 10 01 00 00</code>，cmd运行下面命令：</p>
 <pre><code>fsdecrypt.exe SDEZ.BIN 0x200000 SDEZ.app out.vhd
 </code></pre>
