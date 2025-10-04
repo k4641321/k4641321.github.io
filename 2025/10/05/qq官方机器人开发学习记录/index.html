@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>test2 | k4641321の魔法小屋</title>
+    <title>qq官方机器人开发学习记录 | k4641321の魔法小屋</title>
     <meta name="author" content="k4641321" />
     <meta name="description" content="" />
     <meta name="keywords" content="k4641321,博客" />
@@ -163,22 +163,22 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>test2</h1>
+        <h1>qq官方机器人开发学习记录</h1>
     </div>
     <div class="info">
         <span class="date">
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/12/23
+            2025/10/5
         </span>
         
         <span class="category">
-            <a href="/categories/test/">
+            <a href="/categories/%E5%BC%80%E5%8F%91/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                test
+                开发
             </a>
         </span>
         
@@ -191,15 +191,22 @@
             
             <span class="tag">
                 
-                <a href="/tags/test/" style="color: #00a596">
-                    test
+                <a href="/tags/qq/" style="color: #ffa2c4">
+                    qq
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E5%9B%BE%E7%89%87/" style="color: #ffa2c4">
-                    图片
+                <a href="/tags/bot/" style="color: #00a596">
+                    bot
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="color: #ffa2c4">
+                    机器人
                 </a>
             </span>
             
@@ -208,17 +215,37 @@
     </div>
     
     <div class="content" v-pre>
-        <h2 id="这是对插入本地图片的测试文章"><a href="#这是对插入本地图片的测试文章" class="headerlink" title="这是对插入本地图片的测试文章"></a>这是对插入本地图片的测试文章</h2><p><a href="/images/1.png">这是一张图片</a></p>
-<p>代码如下：<br><code>[这是一张图片](/images/1.png)</code></p>
-<p>根据hexo文档，<code>_config.yml</code>文件里面部分已经改为:  </p>
-<pre><code class="yml">post_asset_folder: true
-marked:
-  prependRoot: true
-  postAsset: true
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>其实早就想自己写一个了，但奈何实力不允许(虽说现在也不允许)，早就听说qq官方有给机器人框架了，写一个来玩玩<br><strong>我并不是什么专业写代码的，只是业余爱好摆弄摆弄，分享而已</strong></p>
+<h2 id="历程"><a href="#历程" class="headerlink" title="历程"></a>历程</h2><h4 id="10-5"><a href="#10-5" class="headerlink" title="10&#x2F;5"></a>10&#x2F;5</h4><p>了解到官方只是给了个接口，后端全部得自己写，找网上现成的机器人框架，太复杂又看不懂。上网查询途中，发现官方有在github上给sdk，立马<code>git clone</code>了一下，但还是看不懂(  </p>
+<p>根据官方的文档，创建一个机器人的后端很简单，首先要安装qq-botpy：</p>
+<pre><code>pip install qq-botpy
 </code></pre>
-<p>然后使用:<br><code>[这是一张图片](1.jpg)</code><br><a href="1.jpg">这是一张图片</a><br>会提示找不到文件，貌似定位到根目录下了</p>
-<p>使用：<br><code>[这是一张图片](./1.jpg)</code><br><a href="/1.jpg">这是一张图片</a><br>也是找不到文件</p>
-<p><strong>但是</strong> 如果使用：<br><code>![这是一张图片](1.jpg)</code><br><img src="/2024/10/01/test/1.jpg" alt="这是一张图片"><br>诶，又能插入。也就是说，放到独立的资源文件夹下，只能作为嵌入使用，不能作为链接的图片</p>
+<p>然后直接新建一个py文件，例如<code>bot.py</code>，输入一下内容：</p>
+<pre><code>import botpy
+from botpy.types.message import Message
+
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.post_message(channel_id=message.channel_id, content=&quot;content&quot;)
+
+intents = botpy.Intents(public_guild_messages=True) 
+client = MyClient(intents=intents)
+client.run(appid=&#123;appid&#125;, token=&#123;token&#125;)
+</code></pre>
+<p>这样一个机器人框架(也许？)就写好了<br>其实我更想这样写：</p>
+<pre><code>import botpy
+from botpy.types.message import Message
+
+class MyClient(botpy.Client):
+    async def on_at_message_create(self, message: Message):
+        await self.api.post_message(channel_id=message.channel_id, content=&quot;content&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    intents = botpy.Intents(public_guild_messages=True) 
+    client = MyClient(intents=intents)
+    client.run(appid=&#123;appid&#125;, token=&#123;token&#125;)
+</code></pre>
+<p>我想写一个某游戏的科技bot，但还得获取聊天信息</p>
 
     </div>
     
