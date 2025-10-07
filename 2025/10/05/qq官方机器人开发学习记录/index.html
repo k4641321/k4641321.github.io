@@ -191,7 +191,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/qq/" style="color: #ffa2c4">
+                <a href="/tags/qq/" style="color: #03a9f4">
                     qq
                 </a>
             </span>
@@ -246,6 +246,15 @@ if __name__ == &quot;__main__&quot;:
     client.run(appid=&#123;appid&#125;, token=&#123;token&#125;)
 </code></pre>
 <p>我想写一个某游戏的科技bot，但还得获取聊天信息</p>
+<h4 id="10-7"><a href="#10-7" class="headerlink" title="10&#x2F;7"></a>10&#x2F;7</h4><p>开发还算顺利，byd的腾讯文档里写的全是给qq频道的，给群聊的就三四个接口，总比没有好，至少目的达成了  </p>
+<p>qq的机器人不能主动发消息，只能被动发消息，但一般要bot也是我们主动@，根据官方文档，我们需要先订阅事件：</p>
+<pre><code>intents = botpy.Intents(public_messages=True)
+</code></pre>
+<p>接着再上面写监听事件的函数，事件为**被@**：</p>
+<pre><code>async def on_group_at_message_create(self, message: GroupMessage)
+</code></pre>
+<p>当机器人被@时，我们可以获取message的内容，根据<a href="https://bot.q.qq.com/wiki/develop/pythonsdk/model/message.html">官方的文档</a>，这里我们只需要用到<code>message.id</code>与<code>member_openid</code>，还有<code>msg_id</code>，有了<code>msg_id</code>才算被动回复，<code>member_openid</code>用来记录<code>/bind</code>的<code>userId</code>  </p>
+<p>新建一个py文件，用来存放函数</p>
 
     </div>
     
