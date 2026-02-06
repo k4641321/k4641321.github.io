@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <title>在手机上进行视频转码 | k4641321の魔法小屋</title>
+    <meta name="author" content="k4641321" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.png" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <style>
+        /* 自定义加载页面样式 */
+        #dynamic-saying {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+            text-align: center;
+            line-height: 1.4;
+            padding: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            #dynamic-saying {
+                font-size: 20px;
+                padding: 5px;
+                min-height: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #dynamic-saying {
+                font-size: 18px;
+            }
+        }
+    </style>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <div id="dynamic-saying">
+                        <span class="default-text">正在加载...</span>
+                    </div>
+                    <!-- <p>加载过慢请开启缓存 浏览器默认开启</p> -->
+                    <img style="width:75%;height:75%" src="/images/loading1.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>K4641321の魔法小屋</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;K4641321の魔法小屋</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>在手机上进行视频转码</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/1/7
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E8%BD%AC%E7%A0%81/" style="color: #ff7d73">
+                    转码
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/FFmpeg/" style="color: #00a596">
+                    FFmpeg
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h3 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h3>
+<p>虽说现在市面上有很多优秀的转换工具了，例如<strong>格式工厂</strong>，<strong>lmo-transform</strong>之类的，在github上数不胜数<br />
+<strong>但是！</strong><br />
+却没有一款手机上好用的格式转换工具，大多数都要会员，还有犯人的广告，那么有没有干净好用的格式转换软件呢？</p>
+<p><strong>有的！兄弟，有的！</strong></p>
+<h3 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h3>
+<p><a target="_blank" rel="noopener" href="https://ffmpeg.org/">FFmpeg</a>一款优秀的<strong>跨平台</strong>处理音视频文件的工具包，估计都有所耳闻。</p>
+<p>重要的是<strong>跨 平 台</strong>，既然都跨平台了，那安卓肯定也是可以运行的吧。</p>
+<h2 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h2>
+<ul>
+<li>一个安卓手机</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/termux/termux-app">termux-app</a></li>
+<li><a target="_blank" rel="noopener" href="https://mt2.cn/download/">MT管理器</a>(可选)</li>
+<li>一个不怎么笨的脑子</li>
+</ul>
+<p>首先将上面提到的必要软件下载下来<br />
+完成后，打开termux</p>
+<blockquote>
+<p>Termux是一个适用于 Android 的终端模拟器，其环境类似于 Linux 环境。 无需Root或设置即可使用。 Termux 会自动进行最小安装 - 使用 APT 包管理器即可获得其他软件包。</p>
+</blockquote>
+<p>由于软件源默认是国外的，为了下载快一点我们需要换源，这里以清华源为例子</p>
+<ol>
+<li>在终端中输入<code>termux-change-repo</code>来使用带有GUI界面跟换软件源，依次为输入<code>termux-change-repo</code>，回车，选择选项里带有<code>Chinese Mainland</code>字样的选项，等待完成</li>
+<li>用文本编辑器直接编辑<code>$PREFIX/etc/apt/sources.list</code>文件，在原本的源前面加上#号，换行写入<code>deb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main</code>，保存，使用命令<code>apt update</code>来更新软件源</li>
+<li>使用</li>
+</ol>
+<pre class="highlight"><code class="">sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main@' $PREFIX/etc/apt/sources.list
+</code></pre>
+<p>命令更换软件源，同样需要</p>
+<pre class="highlight"><code class="">apt update
+</code></pre>
+<p>接着，我们使用命令</p>
+<pre class="highlight"><code class="">pkg install ffmpeg
+</code></pre>
+<p>来安装ffmpeg，安装完成后，将你要转换的文件放入termux的储存空间里，使用<code>ffmpeg -i 原文件路径 输出文件路径</code>来进行格式转换，等到输出完成，文件就转换好了</p>
+<h3 id="没错就这么简单结束"><a class="markdownIt-Anchor" href="#没错就这么简单结束"></a> 没错，就这么简单，结束</h3>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2024 - 2026 k4641321の魔法小屋
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;k4641321
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    <!-- 动态加载诗词API -->
+    <script>
+        // 在页面加载时获取诗词并更新显示
+        document.addEventListener('DOMContentLoaded', function() {
+            const sayingElement = document.getElementById('dynamic-saying');
+            
+            // 从API获取诗词
+            fetch('https://v1.jinrishici.com/rensheng.txt')
+                .then(response => response.text())
+                .then(data => {
+                    if (sayingElement) {
+                        sayingElement.innerHTML = `<span class="poem-text">${data}</span>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('获取诗词失败:', error);
+                    if (sayingElement) {
+                        sayingElement.innerHTML = '<span class="poem-text">人生如逆旅，我亦是行人。</span>';
+                    }
+                });
+        });
+        
+        // 额外的CSS样式，确保诗词显示效果
+        const style = document.createElement('style');
+        style.textContent = `
+            .poem-text {
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+            }
+            .default-text {
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
+    
+    
+
+
+
+
+    
+</body>
+</html>

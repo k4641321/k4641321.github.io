@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <title>PPTHelpaer | k4641321の魔法小屋</title>
+    <meta name="author" content="k4641321" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.png" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <style>
+        /* 自定义加载页面样式 */
+        #dynamic-saying {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+            text-align: center;
+            line-height: 1.4;
+            padding: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            #dynamic-saying {
+                font-size: 20px;
+                padding: 5px;
+                min-height: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #dynamic-saying {
+                font-size: 18px;
+            }
+        }
+    </style>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <div id="dynamic-saying">
+                        <span class="default-text">正在加载...</span>
+                    </div>
+                    <!-- <p>加载过慢请开启缓存 浏览器默认开启</p> -->
+                    <img style="width:75%;height:75%" src="/images/loading1.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>K4641321の魔法小屋</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;K4641321の魔法小屋</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>PPTHelpaer</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/11/16
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E7%B3%BB%E7%BB%9F-%E8%BD%AF%E4%BB%B6/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                系统&amp;软件
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/python/" style="color: #ff7d73">
+                    python
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/ppt/" style="color: #03a9f4">
+                    ppt
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/ppthelper/" style="color: #ffa2c4">
+                    ppthelper
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h3 id="ppt小助手"><a class="markdownIt-Anchor" href="#ppt小助手"></a> PPT小助手</h3>
+<p>一个适用于微软ppt的小玩意<br />
+闲着没事干用着自学python的基础以及chat gpt和必应搓出来至少能用 <s>我可真闲</s></p>
+<p>希沃的ppt小工具开起来后就无法点击翻页了，只能用它左右两边的翻页按钮，并且底部工具栏无法拖动和隐藏，<strong>极其的不方便</strong></p>
+<p><strong>所以这小玩意就诞生了</strong></p>
+<p><strong>开源地址</strong>：<a target="_blank" rel="noopener" href="https://github.com/k4641321/PPT-Helper">https://github.com/k4641321/PPT-Helper</a><br />
+开源是开源了，但是由于技术有限，无法一键编译好就运行，<strong>并且还有一个关键文件没上传</strong> <s>闲的够慌并且懂得原理可以自己写</s></p>
+<h4 id="原理"><a class="markdownIt-Anchor" href="#原理"></a> 原理</h4>
+<p>1.主程序启动，循环检测微软ppt有无启动 <s><em>然后360报毒</em></s></p>
+<p><s>360我真阐述你的梦</s></p>
+<p>2.检测到ppt主程序启动，循环检查是否放映<s>继续报毒</s></p>
+<p>3.检测到放映，启动工具</p>
+<h4 id="结尾"><a class="markdownIt-Anchor" href="#结尾"></a> 结尾</h4>
+<p>后面有时间也在这里写一下怎么编译使用，虽说可能要几个月后，<s>反正没人看</s></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2024 - 2026 k4641321の魔法小屋
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;k4641321
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    <!-- 动态加载诗词API -->
+    <script>
+        // 在页面加载时获取诗词并更新显示
+        document.addEventListener('DOMContentLoaded', function() {
+            const sayingElement = document.getElementById('dynamic-saying');
+            
+            // 从API获取诗词
+            fetch('https://v1.jinrishici.com/rensheng.txt')
+                .then(response => response.text())
+                .then(data => {
+                    if (sayingElement) {
+                        sayingElement.innerHTML = `<span class="poem-text">${data}</span>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('获取诗词失败:', error);
+                    if (sayingElement) {
+                        sayingElement.innerHTML = '<span class="poem-text">人生如逆旅，我亦是行人。</span>';
+                    }
+                });
+        });
+        
+        // 额外的CSS样式，确保诗词显示效果
+        const style = document.createElement('style');
+        style.textContent = `
+            .poem-text {
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+            }
+            .default-text {
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
+    
+    
+
+
+
+
+    
+</body>
+</html>
