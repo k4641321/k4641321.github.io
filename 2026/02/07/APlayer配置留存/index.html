@@ -79,7 +79,10 @@
             }
         }
     </style>
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css" class="aplayer-style-marker">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js" class="meting-script-marker"></script>
+</head>
 <body>
     <div id="layout">
         <transition name="fade">
@@ -204,6 +207,110 @@
     
     <div class="content" v-pre>
         
+    <div id="aplayer-GbIPmIuP" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="1905673997" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>默认值</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>必须值</td>
+<td>歌曲 id / 播放列表 id / 相册 id / 搜索关键字</td>
+</tr>
+<tr>
+<td>server</td>
+<td>必须值</td>
+<td>音乐平台: netease, tencent, kugou, xiami, baidu</td>
+</tr>
+<tr>
+<td>type</td>
+<td>必须值</td>
+<td>song, playlist, album, search, artist</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>false</td>
+<td>开启固定模式</td>
+</tr>
+<tr>
+<td>mini</td>
+<td>false</td>
+<td>开启迷你模式</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>all</td>
+<td>列表循环模式：all, one,none</td>
+</tr>
+<tr>
+<td>order</td>
+<td>list</td>
+<td>列表播放模式： list, random</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>0.7</td>
+<td>播放器音量</td>
+</tr>
+<tr>
+<td>lrctype</td>
+<td>0</td>
+<td>歌词格式类型</td>
+</tr>
+<tr>
+<td>listfolded</td>
+<td>false</td>
+<td>指定音乐播放列表是否折叠</td>
+</tr>
+<tr>
+<td>storagename</td>
+<td>metingjs</td>
+<td>LocalStorage</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>true</td>
+<td>自动播放，移动端浏览器暂时不支持此功能</td>
+</tr>
+<tr>
+<td>mutex</td>
+<td>true</td>
+<td>该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停</td>
+</tr>
+<tr>
+<td>listmaxheight</td>
+<td>340px</td>
+<td>播放列表的最大长度</td>
+</tr>
+<tr>
+<td>preload</td>
+<td>auto</td>
+<td>音乐文件预载入模式，可选项： none, metadata, auto</td>
+</tr>
+<tr>
+<td>theme</td>
+<td>#ad7a86</td>
+<td>播放器风格色彩设置</td>
+</tr>
+</tbody>
+</table>
+<p>基本格式:<br>
+title : 曲目标题<br>
+author: 曲目作者<br>
+url: 音乐文件 URL 地址</p>
+<pre class="highlight"><code class="">&#123;% meting "1905673997" "netease" "song"%&#125;
+</code></pre>
+
+    <div id="aplayer-udGkhNuB" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="1905673997" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
     </div>
     
     
@@ -289,5 +396,5 @@
 
 
     
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":true,"model":{"jsonPath":"/live2dw/assets/chino.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
