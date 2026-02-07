@@ -242,7 +242,7 @@
         :disabled="cryptoStatus === 'success'"
         ref="crypto"
         placeholder="文章被加密，请输入密码"
-        data-encrypted="U2FsdGVkX18JBrUY3bDoJ0gnxTuMba/nUZSmS6KuHCDxxkiTsiTl/wBSvMXtpckU6VW5BuGvkCeOwnK0oIVKRTKByl05Mlc+Mm3w1/fQTYKLAOmxG5aUEwi/jiDreolPY+JlmENpQVYSuIxUPL0KD4j1BGAsrkkDa6rhaaRmUpqpTntb9Ha7DtRexytHNOlhexaopv+QEDC7VP1HTTsSfBeNAWxs8sUDuKOhzEcYpeAHCx/vKWgVNgZSol7UtnCz86IEWtSPB+dQ1IvgTRt2MNcpx1INmqRkuFtMlhqSBVG2LmCDpzZ0llbQk0Lq3rSsOha6u0zkZY3yON9J4FLksft1g3vUUJwNvfMFW+ulAV6cXdTt0O/vo6XOtimvy2lUojdi7A4vAIqDexyvwsgTzQdyGqpZxRAE+amgvnJ0R35f1KoWranHkgpp6QKL/uQPaoN0JXDgPTUpDb0gDlzOAggGXJpisSBkVtJ8yOSIGNy2zl1hT+VqJQeyBzhkG6lPZ2ORblA7whQ7X27T0gWzEZUR34O9pHSVsw7Nt41g6J7IgjqQELm8AOlJlfvv+uLFybokzNEASKvLzqa5BJnCPVr3Q2ZU92wEKnfhK1ysBXQ4LmkdTiM+mvWYCEcZ/qykn+9z0HKNFwsd3QZtsSVp17wTo3FRnA9YwOAd5Ry0lGL0uJte0QIU2tFXsNoDzmD+MPThugp7AMf6E+D+Qh5EUDrGfbUIHoB94aQSwkNzLz+mPRrFBcr6G4aXlEfmkasS8kKOyhvuzioZmelRdD8u0MxaxOwfTm4voVOsMDA1qO79s1S6JZzv6dJpJkI5qFQrlC+n1bzt1p8NgWEwqiwmrmBjmnaQ7bPbkxwAvz+Ys1pW+zeCeXBfVfqiXVKeT57cTsCuu5bUGmvhD9Bd7ojPe5MDWKeWoum1gZmTduDAjprp4wirbuHj/Phki3z0nESvR8tg6a1tOhhEJvmfCVarAMOmbepnmPl/EbVidb0VLfBr6XAfg75qDbBUG64zI3C1n5+Tor3N4yUs2Ng0+MmT9A=="
+        data-encrypted="U2FsdGVkX19DEl/boPiPZFTzI3GDuBe1+evWRD6v4H0THN1Foc2MMc0KVbyFOrta/WTzxYO6pMW3xsC2QFEb2S6geouq5cvNxGVjwZp8oFGxi1mStWnUF7pmjnAWZf4z10KKaHakNJBlk5u1l7NUO1Gksd5OHoO8SeF+LNqxbcV1UKg3oYXN6LIjx3ABq4V7CLl7HlaUsDq3O0txlkNlLv0urvAR9JRn204Kdh818N9ERyfvau16QzkUT4lSleA+2ewOOASOtJrFU8T1aYpF/EspZzEvdhUJv8gaUB+izHB8zdXxw+rY51GD6WQK0KlOffArgz+SPi/eaDSR9BTbHUHNdjEAfBzxpx8rcRNzRCRur5GWjoux5lQe7XNK+o6C6MpTkt8uN2hMH3V+85Wy/a9YOw5TTcp4/9/pTUlIyU64jpCD79bHoLN9XCvmMubHAakQ19SEoM+pAkRBqZWoyvwWwivFId+bqDMU228oWh0CJOT/bkrPU79vLCfdh9ylLeFiltS/zXVqXWyxjrD5NbBuXLGE/alLzWIE/cDFCiDDEPwf5hxdqJoInG0EutN6wGKsaunn6O8lEaOTThV2ZqQwbU/ZbPbSxs/vipC3E4P7cNUqTofjUIx6k/xlroDE0o5di7NbKLqogf/hof9xifU+69e9Ka7UW0edzaqElVjxddcFrnAiG3eatKFaFgCKidfID+KKCjOc9gkDfc6xTZNTxjo6hbXoRw1y2xPWFf/xdkGWla2eRwJ/abo73knk4Fo5rTADB5e01CHgKx3ov6Jqc2miQO597DHsxpu3JY5agfHSDUgdM25ukQ8kheP8TOIH6Oj3I2FgqSyCNxCoYYtkhlbqfhb+HkarL2JXeOPXmZAnpRMCwHIiPQ1p3s2ZjXkPR4HL2sl3g9/629JKJgZLsrqRWpmpKKPUT6PES3fW3yPh0cH/9vfy5P3/tW8IeBgq/VUD3LcWDae5IqdQ4HdBbGxJGHsr1cPXE8FbCna0RRjwOMk92iHDvMfxD2R03RWTL12rukOfImdjjp9lSw=="
         data-shasum="cb4116cc39db87be9e96da78672657216090bbd43b67b7e72fd4a57f3f649e66"
         v-model="crypto"
     />
@@ -343,7 +343,7 @@
         owner: "k4641321",
         admin: "k4641321".split(","),
         language: "",
-        id: location.pathname,
+        id: "page.slug || page.title",
         
     })
     gitalk.render("gitalk-container");
