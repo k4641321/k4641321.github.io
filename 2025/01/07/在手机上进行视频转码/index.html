@@ -208,14 +208,14 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E8%BD%AC%E7%A0%81/" style="color: #00a596">
+                <a href="/tags/%E8%BD%AC%E7%A0%81/" style="color: #03a9f4">
                     转码
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/FFmpeg/" style="color: #00bcd4">
+                <a href="/tags/FFmpeg/" style="color: #ffa2c4">
                     FFmpeg
                 </a>
             </span>
@@ -239,8 +239,8 @@
     
     <div class="content" v-pre>
         <h3 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h3>
-<p>虽说现在市面上有很多优秀的转换工具了，例如<strong>格式工厂</strong>，<strong>lmo-transform</strong>之类的，在github上数不胜数<br />
-<strong>但是！</strong><br />
+<p>虽说现在市面上有很多优秀的转换工具了，例如<strong>格式工厂</strong>，<strong>lmo-transform</strong>之类的，在github上数不胜数<br>
+<strong>但是！</strong><br>
 却没有一款手机上好用的格式转换工具，大多数都要会员，还有犯人的广告，那么有没有干净好用的格式转换软件呢？</p>
 <p><strong>有的！兄弟，有的！</strong></p>
 <h3 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h3>
@@ -253,7 +253,7 @@
 <li><a target="_blank" rel="noopener" href="https://mt2.cn/download/">MT管理器</a>(可选)</li>
 <li>一个不怎么笨的脑子</li>
 </ul>
-<p>首先将上面提到的必要软件下载下来<br />
+<p>首先将上面提到的必要软件下载下来<br>
 完成后，打开termux</p>
 <blockquote>
 <p>Termux是一个适用于 Android 的终端模拟器，其环境类似于 Linux 环境。 无需Root或设置即可使用。 Termux 会自动进行最小安装 - 使用 APT 包管理器即可获得其他软件包。</p>
@@ -264,13 +264,13 @@
 <li>用文本编辑器直接编辑<code>$PREFIX/etc/apt/sources.list</code>文件，在原本的源前面加上#号，换行写入<code>deb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main</code>，保存，使用命令<code>apt update</code>来更新软件源</li>
 <li>使用</li>
 </ol>
-<pre class="highlight"><code class="">sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main@' $PREFIX/etc/apt/sources.list
+<pre><code>sed -i 's@^\(deb.*stable main\)$@#\1\ndeb https://mirrors.tuna.tsinghua.edu.cn/termux/apt/termux-main stable main@' $PREFIX/etc/apt/sources.list
 </code></pre>
 <p>命令更换软件源，同样需要</p>
-<pre class="highlight"><code class="">apt update
+<pre><code>apt update
 </code></pre>
 <p>接着，我们使用命令</p>
-<pre class="highlight"><code class="">pkg install ffmpeg
+<pre><code>pkg install ffmpeg
 </code></pre>
 <p>来安装ffmpeg，安装完成后，将你要转换的文件放入termux的储存空间里，使用<code>ffmpeg -i 原文件路径 输出文件路径</code>来进行格式转换，等到输出完成，文件就转换好了</p>
 <h3 id="没错就这么简单结束"><a class="markdownIt-Anchor" href="#没错就这么简单结束"></a> 没错，就这么简单，结束</h3>

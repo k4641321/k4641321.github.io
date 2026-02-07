@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <title>更新博客的过程记录 | k4641321の魔法小屋</title>
+    <meta name="author" content="k4641321" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.png" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <style>
+        /* 自定义加载页面样式 */
+        #dynamic-saying {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+            text-align: center;
+            line-height: 1.4;
+            padding: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            #dynamic-saying {
+                font-size: 20px;
+                padding: 5px;
+                min-height: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #dynamic-saying {
+                font-size: 18px;
+            }
+        }
+    </style>
+<meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css" class="aplayer-style-marker">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js" class="meting-script-marker"></script>
+</head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <div id="dynamic-saying">
+                        <span class="default-text">正在加载...</span>
+                    </div>
+                    <!-- <p>加载过慢请开启缓存 浏览器默认开启</p> -->
+                    <img style="width:75%;height:75%" src="/images/loading1.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>K4641321の魔法小屋</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;K4641321の魔法小屋</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>更新博客的过程记录</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/2/7
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E5%8D%9A%E5%AE%A2/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                博客
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%95%99%E7%A8%8B/" style="color: #03a9f4">
+                    教程
+                </a>
+            </span>
+            
+        </span>
+        
+         <!-- 添加字数统计 -->
+        <span class="word-count">
+            <span class="icon">
+                <i class="fa-solid fa-file-word fa-fw"></i>
+            </span>
+            1.8k 字
+        </span>
+        <span class="reading-time">
+            <span class="icon">
+                <i class="fa-solid fa-clock fa-fw"></i>
+            </span>
+                8 分钟
+        </span>
+    </div>
+    
+    <div class="content" v-pre>
+        
+    <div id="aplayer-pPulbkvm" class="aplayer aplayer-tag-marker meting-tag-marker"
+         data-id="2022319246" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
+    ></div>
+<h1 id="最近觉得自己博客太单调想加点新内容过程稍微有点波折故记录一下"><a class="markdownIt-Anchor" href="#最近觉得自己博客太单调想加点新内容过程稍微有点波折故记录一下"></a> 最近觉得自己博客太单调，想加点新内容，过程稍微有点波折，故记录一下</h1>
+<h3 id="首先是更新了markdown渲染器"><a class="markdownIt-Anchor" href="#首先是更新了markdown渲染器"></a> 首先是更新了markdown渲染器</h3>
+<p>原本自带的渲染器部分语法是渲染不了的，现在换成了<code>hexo-renderer-markdown-it-plus</code></p>
+<blockquote>
+<p>什么，你说为什么不是hexo-renderer-markdown-it？</p>
+</blockquote>
+<p>由于我是在termux上写博客并推送的，其中难免遇到奇奇怪怪的问题，比如用<code>hexo-renderer-markdown-it</code>时，在配置文件里：</p>
+<pre><code class="language-yml">plugins:
+    - markdown-it-github-alerts
+</code></pre>
+<p><code>hexo s</code>一下，啪！立马报错<br>
+所以采用了<code>hexo-renderer-markdown-it-plus</code></p>
+<blockquote>
+<p>骗你的，<code>hexo-renderer-markdown-it-plus</code>对我现在hexo用的主题也没多好</p>
+</blockquote>
+<p>我目前hexo用的主题是<a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>，这个主题自带语法高亮，必须禁用hexo自带的，然后我在配置文件里禁用了，依然会渲染错误代码块，根据<code>hexo-renderer-markdown-it-plus</code>在github上别人反馈的问题，需要手动更改库的代码更改内容如下：</p>
+<pre><code>// 在53-64行的开头和结尾加注释，例如这样
+/*var pre_class = config['pre_class'];
+    if(!pre_class) pre_class = 'highlight';
+    checkValue(config, _res, 'highlight', function(str, lang) &#123;
+        if (lang &amp;&amp; hljs.getLanguage(lang)) &#123;
+            try &#123;
+                return '&lt;pre class=&quot;' + pre_class + '&quot;&gt;&lt;code class=&quot;' + lang + '&quot;&gt;' + hljs.highlight(str, &#123;language: lang, ignoreIllegals: true &#125;).value + '&lt;/code&gt;&lt;/pre&gt;';
+            &#125; catch (__) &#123;&#125;
+        &#125;
+        return '&lt;pre class=&quot;' + pre_class + '&quot;&gt;&lt;code class=&quot;' + lang + '&quot;&gt;' + utils.escapeHtml(str) + '&lt;/code&gt;&lt;/pre&gt;';
+    &#125;, function(str, lang) &#123;
+        return '&lt;pre class=&quot;' + pre_class + '&quot;&gt;&lt;code class=&quot;' + lang + '&quot;&gt;' + utils.escapeHtml(str) + '&lt;/code&gt;&lt;/pre&gt;';
+    &#125;);*/
+</code></pre>
+<p>这样对于我这主题就不会渲染出错了</p>
+<h3 id="为博客添加了live2d小人"><a class="markdownIt-Anchor" href="#为博客添加了live2d小人"></a> 为博客添加了live2d小人</h3>
+<p>这个倒是挺简单，运行下面命令：</p>
+<pre><code>npm install hexo-oh-my-live2d
+</code></pre>
+<blockquote>
+<p>也许有人要问，为什么不用<code>hexo-helper-live2d</code>？</p>
+</blockquote>
+<p>太老了，并且小人不会跟你说话，所以选择<code>hexo-oh-my-live2d</code><br>
+配置文件如下，在<code>_config.yml</code>里：</p>
+<pre><code class="language-yml">OhMyLive2d:
+  enable: true
+  CDN: https://registry.npmmirror.com/oh-my-live2d/latest/files
+  # CDN: https://registry.npmmirror.com/oh-my-live2d/0.13/files/dist/index.min.js
+  option:
+    # importType: 'cubism2' #  导入类型, 默认使用全量导入: complete , 可选值: complete, cubism2, cubism5
+    libraryUrls: # 自定义 Cubism SDK 外部资源地址
+      complete: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js
+      cubism2: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js
+      cubism5: https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js
+    # menus:
+    # items: |
+    #   (defaultItems)=&gt;&#123;
+    #    return [
+    #      ...defaultItems,
+    #      &#123;
+    #        id: 'github',
+    #        icon: 'github-fill',
+    #        title: '我的github',
+    #        onClick: ()=&gt;window.open('https://github.com/hacxy')
+    #      &#125;
+    #    ]
+    #   &#125;
+
+    # items:
+    #   - id: 'github'
+    #     icon: 'github-fill'
+    #     title: '我的github'
+    #     onClick: ()=&gt;window.open('https://github.com/k4641321')
+
+    mobileDisplay: true # 是否在移动端显示
+    models:
+      - path: /live2d_models/chino/chino.model.json
+        mobilePosition: [-10, 23] # 移动端时模型在舞台中的位置。 默认值: [0,0] [横坐标, 纵坐标]
+        mobileScale: 0.1 # 移动端时模型的缩放比例 默认值: 0.1
+        mobileStageStyle: # 移动端时舞台的样式
+          width: 180
+          height: 166
+        motionPreloadStrategy: IDLE # 动作预加载策略 默认值: IDLE 可选值: ALL | IDLE | NONE
+        position: [-10, 35] # 模型在舞台中的位置。 默认值: [0,0] [横坐标, 纵坐标]
+        scale: 0.15 # 模型的缩放比例 默认值: 0.1
+        # showHitAreaFrames: false # 是否显示点击区域 默认值: false
+        stageStyle:
+          width: 250
+          height: 250
+    parentElement: document.body #为组件提供一个父元素，如果未指定则默认挂载到 body 中
+    primaryColor: 'var(--btn-bg)' # 主题色 支持变量
+    sayHello: false # 是否在初始化阶段打印项目信息
+    tips:
+      style:
+        width: 230
+        height: 120
+        left: calc(50% - 20px)
+        top: -100px
+      mobileStyle:
+        width: 180
+        height: 80
+        left: calc(50% + 50px)
+        top: -100px
+      idleTips:
+        interval: 1000
+        message:
+          - 你好呀~
+          - 欢迎来到我的小站~
+          - 要来点咖啡吗~
+          - 你复制了什么内容呢?记得注明出处哦~
+        # 自定义提示语 需要 引入 axios 库 ,也可以使用其他方法
+        # message: |
+        #   function()&#123;
+        #     return axios.get('https://v1.hitokoto.cn?c=i')
+        #       .then(function (response) &#123;
+        #         return response.data.hitokoto ;&#125;)
+        #       .catch(function (error) &#123;
+        #         console.error(error); &#125;);
+        #   &#125;
+        wordTheDay: |
+          function(wordTheDayData)&#123;
+            return `$&#123;wordTheDayData.hitokoto&#125;    by.$&#123;wordTheDayData.from&#125;`;
+          &#125;
+    then: |
+      (oml2d)=&gt;&#123;
+        setTimeout(() =&gt; &#123;
+          oml2d.tipsMessage('hello world', 3000, 10);
+        &#125;, 8000);
+      &#125;
+</code></pre>
+<p>模型来自<a target="_blank" rel="noopener" href="https://mx.paul.ren/model/chino.html">这里</a></p>
+<h3 id="为文章加了字数统计和阅读时间"><a class="markdownIt-Anchor" href="#为文章加了字数统计和阅读时间"></a> 为文章加了字数统计和阅读时间</h3>
+<p>这个也挺简单，运行下面命令：</p>
+<pre><code>npm install hexo-wordcount
+</code></pre>
+<p>接着在主题文件的<code>post.ejs</code>里的<strong>第41行</strong>后面加上：</p>
+<pre><code>&lt;!-- 添加字数统计 --&gt;
+        &lt;span class=&quot;word-count&quot;&gt;
+            &lt;span class=&quot;icon&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-file-word fa-fw&quot;&gt;&lt;/i&gt;
+            &lt;/span&gt;
+            &lt;%= wordcount(page.content) %&gt; 字
+        &lt;/span&gt;
+        &lt;span class=&quot;reading-time&quot;&gt;
+            &lt;span class=&quot;icon&quot;&gt;
+                &lt;i class=&quot;fa-solid fa-clock fa-fw&quot;&gt;&lt;/i&gt;
+            &lt;/span&gt;
+                &lt;%= min2read(page.content) %&gt; 分钟
+        &lt;/span&gt;
+</code></pre>
+<h3 id="为博客增加了离开和返回的标题更改与点击效果"><a class="markdownIt-Anchor" href="#为博客增加了离开和返回的标题更改与点击效果"></a> 为博客增加了离开和返回的标题更改与点击效果</h3>
+<p>随便网上找个模版，新建一个js文件，放在 主题文件source/js下：</p>
+<pre><code class="language-js">var OriginTitle = document.title;
+ var titleTime;
+ document.addEventListener('visibilitychange', function () &#123;
+     if (document.hidden) &#123;
+         // $('[rel=&quot;icon&quot;]').attr('href', &quot;/img/trhx2.png&quot;);
+         document.title = '别走啊，再多看看呗(*´I`*)';
+         clearTimeout(titleTime);
+     &#125;
+     else &#123;
+         //$('[rel=&quot;icon&quot;]').attr('href', &quot;/img/trhx2.png&quot;);
+         document.title = '欢迎回来ᴖᗜᴖ' //+ OriginTitle;
+         titleTime = setTimeout(function () &#123;
+             document.title = OriginTitle;
+         &#125;, 2000);
+     &#125;
+ &#125;);
+</code></pre>
+<p>点击效果同理：</p>
+<pre><code class="language-js">(function() &#123;
+    var a_idx = 0;
+    window.onclick = function(event) &#123;
+        var a = new Array(
+            &quot;Perfect&quot;,
+            &quot;Great&quot;,
+            &quot;Good&quot;,
+            &quot;Bad&quot;,
+            &quot;Miss&quot;
+        );
+
+        // 创建元素并防止选中
+        var heart = document.createElement(&quot;b&quot;);
+        heart.onselectstart = new Function('event.returnValue=false');
+
+        // 添加元素到页面
+        document.body.appendChild(heart).innerHTML = a[a_idx];
+        a_idx = (a_idx + 1) % a.length;
+        heart.style.cssText = &quot;position: fixed; left: -100%;&quot;;
+
+        // 初始化动画参数
+        var f = 16,                     // 字体大小
+            x = event.clientX - f / 2,  // 横坐标
+            y = event.clientY - f,      // 纵坐标
+            c = randomColor(),          // 随机颜色
+            a = 1,                      // 透明度
+            s = 1.2;                    // 缩放比例
+
+        // 动画定时器
+        var timer = setInterval(function() &#123;
+            if (a &lt;= 0) &#123;
+                document.body.removeChild(heart);
+                clearInterval(timer);
+            &#125; else &#123;
+                heart.style.cssText = `
+                    font-size: 16px;
+                    cursor: default;
+                    position: fixed;
+                    color: $&#123;c&#125;;
+                    left: $&#123;x&#125;px;
+                    top: $&#123;y&#125;px;
+                    opacity: $&#123;a&#125;;
+                    transform: scale($&#123;s&#125;);
+                `;
+                y--;          // 垂直位移
+                a -= 0.016;   // 透明度衰减
+                s += 0.002;   // 持续放大
+            &#125;
+        &#125;, 15);  // 15ms帧间隔
+    &#125;;
+
+    // 生成随机RGB颜色
+    function randomColor() &#123;
+        return &quot;rgb(&quot; +
+            ~~(Math.random() * 255) + &quot;,&quot; +
+            ~~(Math.random() * 255) + &quot;,&quot; +
+            ~~(Math.random() * 255) + &quot;)&quot;;
+    &#125;
+&#125;)();
+</code></pre>
+<p>在<code>layout.ejs</code>中<strong>第87行</strong>后面加上：</p>
+<pre><code>&lt;script src=&quot;&lt;%- url_for(&quot;/js/title.js&quot;) %&gt;&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;&lt;%- url_for(&quot;/js/click.js&quot;) %&gt;&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="更改了加载动画加载文字更改成故诗"><a class="markdownIt-Anchor" href="#更改了加载动画加载文字更改成故诗"></a> 更改了加载动画，加载文字更改成故诗</h3>
+<p>在<code>layout.ejs</code>中加了与更改：</p>
+<pre><code>&lt;div id=&quot;loading&quot; v-show=&quot;loading&quot;&gt;
+                &lt;div id=&quot;loading-circle&quot;&gt;
+                    &lt;div id=&quot;dynamic-saying&quot;&gt;
+                        &lt;span class=&quot;default-text&quot;&gt;正在加载...&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;!-- &lt;p&gt;加载过慢请开启缓存 浏览器默认开启&lt;/p&gt; --&gt;
+                    &lt;img style=&quot;width:75%;height:75%&quot; src=&quot;&lt;%- url_for(theme.loading) %&gt;&quot; /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+</code></pre>
+<pre><code>&lt;script&gt;
+        // 在页面加载时获取诗词并更新显示
+        document.addEventListener('DOMContentLoaded', function() &#123;
+            const sayingElement = document.getElementById('dynamic-saying');
+            
+            // 从API获取诗词
+            fetch('https://v1.jinrishici.com/rensheng.txt')
+                .then(response =&gt; response.text())
+                .then(data =&gt; &#123;
+                    if (sayingElement) &#123;
+                        sayingElement.innerHTML = `&lt;span class=&quot;poem-text&quot;&gt;$&#123;data&#125;&lt;/span&gt;`;
+                    &#125;
+                &#125;)
+                .catch(error =&gt; &#123;
+                    console.error('获取诗词失败:', error);
+                    if (sayingElement) &#123;
+                        sayingElement.innerHTML = '&lt;span class=&quot;poem-text&quot;&gt;人生如逆旅，我亦是行人。&lt;/span&gt;';
+                    &#125;
+                &#125;);
+        &#125;);
+        
+        // 额外的CSS样式，确保诗词显示效果
+        const style = document.createElement('style');
+        style.textContent = `
+            .poem-text &#123;
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+            &#125;
+            .default-text &#123;
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+            &#125;
+        `;
+        document.head.appendChild(style);
+    &lt;/script&gt;
+</code></pre>
+<h4 id="至此博客更新结束"><a class="markdownIt-Anchor" href="#至此博客更新结束"></a> 至此，博客更新结束</h4>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2024 - 2026 k4641321の魔法小屋
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;k4641321
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    <script src="/js/title.js"></script>
+    <script src="/js/click.js"></script>
+    
+    <!-- 动态加载诗词API -->
+    <script>
+        // 在页面加载时获取诗词并更新显示
+        document.addEventListener('DOMContentLoaded', function() {
+            const sayingElement = document.getElementById('dynamic-saying');
+            
+            // 从API获取诗词
+            fetch('https://v1.jinrishici.com/rensheng.txt')
+                .then(response => response.text())
+                .then(data => {
+                    if (sayingElement) {
+                        sayingElement.innerHTML = `<span class="poem-text">${data}</span>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('获取诗词失败:', error);
+                    if (sayingElement) {
+                        sayingElement.innerHTML = '<span class="poem-text">人生如逆旅，我亦是行人。</span>';
+                    }
+                });
+        });
+        
+        // 额外的CSS样式，确保诗词显示效果
+        const style = document.createElement('style');
+        style.textContent = `
+            .poem-text {
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+            }
+            .default-text {
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
+    
+    
+
+
+
+
+    
+<!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},mobileDisplay:true,models:[{"path":"/live2d_models/chino/chino.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,35],"scale":0.15,"stageStyle":{"width":250,"height":250}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:false,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% + 50px)","top":"-100px"},idleTips:{interval:1000,message:["你好呀~","欢迎来到我的小站~","要来点咖啡吗~","你复制了什么内容呢?记得注明出处哦~"],wordTheDay:function(wordTheDayData){
+  return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+}
+}},then:"(oml2d)=>{\n  setTimeout(() => {\n    oml2d.tipsMessage('hello world', 3000, 10);\n  }, 8000);\n}\n"});</script><!-- hexo injector body_end end --></body>
+</html>

@@ -217,14 +217,14 @@
             
             <span class="tag">
                 
-                <a href="/tags/test/" style="color: #00a596">
+                <a href="/tags/test/" style="color: #03a9f4">
                     test
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E5%9B%BE%E7%89%87/" style="color: #ff7d73">
+                <a href="/tags/%E5%9B%BE%E7%89%87/" style="color: #00a596">
                     图片
                 </a>
             </span>
@@ -249,25 +249,25 @@
     <div class="content" v-pre>
         <h2 id="这是对插入本地图片的测试文章"><a class="markdownIt-Anchor" href="#这是对插入本地图片的测试文章"></a> 这是对插入本地图片的测试文章</h2>
 <p><a href="/images/1.png">这是一张图片</a></p>
-<p>代码如下：<br />
+<p>代码如下：<br>
 <code>[这是一张图片](/images/1.png)</code></p>
 <p>根据hexo文档，<code>_config.yml</code>文件里面部分已经改为:</p>
-<pre class="highlight"><code class="yml">post_asset_folder: true
+<pre><code class="language-yml">post_asset_folder: true
 marked:
   prependRoot: true
   postAsset: true
 </code></pre>
-<p>然后使用:<br />
-<code>[这是一张图片](1.jpg)</code><br />
-<a href="1.jpg">这是一张图片</a><br />
+<p>然后使用:<br>
+<code>[这是一张图片](1.jpg)</code><br>
+<a href="1.jpg">这是一张图片</a><br>
 会提示找不到文件，貌似定位到根目录下了</p>
-<p>使用：<br />
-<code>[这是一张图片](./1.jpg)</code><br />
-<a href="/1.jpg">这是一张图片</a><br />
+<p>使用：<br>
+<code>[这是一张图片](./1.jpg)</code><br>
+<a href="/1.jpg">这是一张图片</a><br>
 也是找不到文件</p>
-<p><strong>但是</strong> 如果使用：<br />
-<code>![这是一张图片](1.jpg)</code><br />
-<img src="1.jpg" alt="这是一张图片" /><br />
+<p><strong>但是</strong> 如果使用：<br>
+<code>![这是一张图片](1.jpg)</code><br>
+<img src="1.jpg" alt="这是一张图片"><br>
 诶，又能插入。也就是说，放到独立的资源文件夹下，只能作为嵌入使用，不能作为链接的图片</p>
 
     </div>

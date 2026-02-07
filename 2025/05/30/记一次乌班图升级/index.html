@@ -217,14 +217,14 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E4%B9%8C%E7%8F%AD%E5%9B%BE/" style="color: #ff7d73">
+                <a href="/tags/%E4%B9%8C%E7%8F%AD%E5%9B%BE/" style="color: #03a9f4">
                     乌班图
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/Linux/" style="color: #00a596">
+                <a href="/tags/Linux/" style="color: #ffa2c4">
                     Linux
                 </a>
             </span>
@@ -248,15 +248,15 @@
     
     <div class="content" v-pre>
         <h2 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h2>
-<p>因为运行开源项目时，需要nodejs，但是我当前版本的不支持，以及后面python的要求，被迫升级<br />
+<p>因为运行开源项目时，需要nodejs，但是我当前版本的不支持，以及后面python的要求，被迫升级<br>
 在升级的途中，我是用ssh连过去升级的，但因为网络不稳定，升级途中网络断了，连上守护进程勉强升到了24LTS，但后面迎来的是网络配置错误</p>
 <h2 id="遇到的问题"><a class="markdownIt-Anchor" href="#遇到的问题"></a> 遇到的问题</h2>
-<p>使用<strong>ping</strong>时，ping ip会提示：<code>ping network is unreachable</code>，ping域名又会显示：<code>temporary failure resolving</code>，apt update会显示<code>temporary failure resolving</code>，按网上讲的，就是网络配置有问题，<strong>但是！</strong><br />
+<p>使用<strong>ping</strong>时，ping ip会提示：<code>ping network is unreachable</code>，ping域名又会显示：<code>temporary failure resolving</code>，apt update会显示<code>temporary failure resolving</code>，按网上讲的，就是网络配置有问题，<strong>但是！</strong><br>
 按网上讲的用netplan设置，但我刚升级的乌班图没有，许多方法也是无用功，最后找到了这一条</p>
-<pre class="highlight"><code class="">sudo ifconfig 网络适配器名称 192.168.0.101 netmask 255.255.255.0  //配置ip地址 和 子网掩码
+<pre><code>sudo ifconfig 网络适配器名称 192.168.0.101 netmask 255.255.255.0  //配置ip地址 和 子网掩码
 </code></pre>
 <p>接着</p>
-<pre class="highlight"><code class="">sudo route add default gw 192.168.0.1  //设置网关
+<pre><code>sudo route add default gw 192.168.0.1  //设置网关
 </code></pre>
 <p>这样就把网络配置好了，可以正常使用了</p>
 

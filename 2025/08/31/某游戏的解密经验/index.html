@@ -217,7 +217,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E6%B4%97%E8%A1%A3%E6%9C%BA/" style="color: #03a9f4">
+                <a href="/tags/%E6%B4%97%E8%A1%A3%E6%9C%BA/" style="color: #ff7d73">
                     洗衣机
                 </a>
             </span>
@@ -242,40 +242,40 @@
     <div class="content" v-pre>
         <p>最近研究神秘东西上头了，但不想花太多钱下去，经过一番网上寻找，终于成功运行</p>
 <h2 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h2>
-<p><strong>本文章不提供全部文件，请自行寻找，不做技术支持,本文章仅做经验分享</strong><br />
+<p><strong>本文章不提供全部文件，请自行寻找，不做技术支持,本文章仅做经验分享</strong><br>
 默认你已经有必要的东西，在开始之前，你需要预留100G左右的空间</p>
 <p>首先你需要到<a target="_blank" rel="noopener" href="https://gitdab.com/SEGA/sega">这里</a>获取解密所需要的文件，还要一个python环境</p>
 <p>创建一个文件，作为工作区，把<code>tools/Filesystem/fsdecrypt.exe</code>复制进去，当然你也可以把要解密的东西直接扔进tools/Filesystem，你还可以直接cmd里运行fsdecrypt.exe</p>
 <p>然后你需要找到解密所需的AES KEY，在<code>keys/AES128_Nu_ALLS</code>下，找到<code>XXXX.BIN</code>的文件，你可以复制到<code>tools/Filesystem/</code>下，也可以不复制，这以<code>SDEZ.app</code>演示</p>
 <h2 id="解密"><a class="markdownIt-Anchor" href="#解密"></a> 解密</h2>
 <p>运行cmd，进入你的工作目录，快捷一点就是路径栏里直接敲cmd，输入<code>fsdecrypt.exe</code>可以获取到帮助提示</p>
-<pre class="highlight"><code class="">fsdecrypt.exe [密钥] [offset偏移量] [输入] [输出]
+<pre><code>fsdecrypt.exe [密钥] [offset偏移量] [输入] [输出]
 </code></pre>
 <blockquote>
 <p>上面不是帮助的原始输出，稍微试着汉化了一下</p>
 </blockquote>
 <p>用Hex编辑器打开XXXX.BIN文件，文件原本只要一行，加入第二行NTFS文件头<code>EB 52 90 4E 54 46 53 20 20 20 20 00 10 01 00 00</code>，cmd运行下面命令：</p>
-<pre class="highlight"><code class="">fsdecrypt.exe SDEZ.BIN 0x200000 SDEZ.app out.vhd
+<pre><code>fsdecrypt.exe SDEZ.BIN 0x200000 SDEZ.app out.vhd
 </code></pre>
 <blockquote>
 <p>后面发现好像必须是out.vhd，除非有能力手动更改<code>calculate_iv.py</code>里的部分</p>
 </blockquote>
 <p>输出的<code>out.vhd</code>并不是真正的vhd文件，这只是解密的第一步</p>
-<p>接着我们进入<code>tools/Filesystem/calculate_iv/</code>文件夹，把刚刚的SDEZ1.app复制/剪切过去(如果你有技术可以改改<code>calculate_iv.py</code>文件自定义路径),<br />
+<p>接着我们进入<code>tools/Filesystem/calculate_iv/</code>文件夹，把刚刚的SDEZ1.app复制/剪切过去(如果你有技术可以改改<code>calculate_iv.py</code>文件自定义路径),<br>
 运行cmd，输入：</p>
-<pre class="highlight"><code class="">python calculate_iv.py
+<pre><code>python calculate_iv.py
 </code></pre>
 <p>从输出的内容中找到<code>key1</code>，复制下来，打开刚刚用到的SDEZ.BIN，删除之前的<code>EB 52 90 4E 54 46 53 20 20 20 20 00 10 01 00 00</code>，把<code>key1</code>粘贴上去，再次运行：</p>
 <blockquote>
 <p>刚刚的<code>out.vhd</code>已经没用了，可以删了</p>
 </blockquote>
-<pre class="highlight"><code class="">fsdecrypt.exe SDEZ.BIN 0x200000 SDEZ.app SDEZ2.vhd
+<pre><code>fsdecrypt.exe SDEZ.BIN 0x200000 SDEZ.app SDEZ2.vhd
 </code></pre>
 <p>等到运行结束，用<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/imdisk-toolkit/">Imdisk</a>挂载新的<code>out.vhd</code>，将里面的vhd文件复制出来，装载，就可以运行了，后面的<code>segatools</code>请自行寻找</p>
 <h3 id="opt"><a class="markdownIt-Anchor" href="#opt"></a> OPT</h3>
 <p>opt 镜像用的是 <code>tools/Filesystem</code> 中的 <code>fstool.exe</code>，<code>keys/AES128_Nu_ALLS</code> 中的 <code>OPT.bin</code></p>
 <p>命令如下</p>
-<pre class="highlight"><code class="">fstool.exe dec OPT.bin file.opt out.vhd
+<pre><code>fstool.exe dec OPT.bin file.opt out.vhd
 </code></pre>
 <p>得到的是一个 exFAT 格式的原始镜像。提取其中的文件可以使用 PowerISO 来解压</p>
 <blockquote>
