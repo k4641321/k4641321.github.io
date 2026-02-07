@@ -35,12 +35,20 @@
 <script src="/js/lib/highlight.js"></script>
 
 
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
 
 <script src="/js/lib/preview.js"></script>
 
 
 
 
+
+<script src="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.css" />
 
 
 
@@ -208,7 +216,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E8%BD%AC%E7%A0%81/" style="color: #03a9f4">
+                <a href="/tags/%E8%BD%AC%E7%A0%81/" style="color: #ff7d73">
                     转码
                 </a>
             </span>
@@ -278,6 +286,10 @@
     </div>
     
     
+    
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
     
     
     
@@ -357,6 +369,20 @@
     
     
     
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "Ov23liSkq2rg9l82jaBh# Default ClientID",
+        clientSecret: "618cea16ac9827b0c42c793db6fc492886bb95bc# Default ClientSecret",
+        repo: "blog-gitalk-comments# The name of repository of store comments",
+        owner: "k4641321# GitHub repo owner",
+        admin: "k4641321# GitHub repo owner and collaborators, only these guys can initialize github issues".split(","),
+        language: "",
+        id: location.pathname,
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
 
 
 

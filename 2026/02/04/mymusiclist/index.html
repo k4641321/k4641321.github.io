@@ -35,12 +35,23 @@
 <script src="/js/lib/highlight.js"></script>
 
 
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
 
 <script src="/js/lib/preview.js"></script>
 
 
+<script src="https://s4.zstatic.net/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+<script src="/js/lib/crypto.js"></script>
 
 
+
+
+<script src="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.css" />
 
 
 
@@ -224,15 +235,26 @@
         </span>
     </div>
     
-    <div class="content" v-pre>
-        <p>qq：BfuU+gBaeBL7z45Al28fGdGOKeb6nzx+rEWc6RxONCA1BJJfadxGMfp1PUoSDuCa1R5Khz6KFB5mMYwsNlz8GrLZE13NDNkh3ShlvihYUmFqfWaPhFZYrPxF11g13ef6DxMAN+WVj8slYtnDWnc0ew==！</p>
-<p>163: b19p4D3+M9aejArrpPovk5Bi9oXv+04U6h4qGf0VEuakwSYpJty6H96X/dKlgfC0wds9VLCqTu0BivYzfwo5N2xzKJxnaMluKmC1StOoWmk=</p>
-<p>kugou：SCyLiOihFEtI/sTJjdsaYLGPzEZklmFb28H4bgomJa41oWBXSTRPoUY3ZFaffcV2</p>
-<p>rc6</p>
-
+    
+    <input
+        id="crypto"
+        :class="['input', cryptoStatus]"
+        :disabled="cryptoStatus === 'success'"
+        ref="crypto"
+        placeholder="文章被加密，请输入密码"
+        data-encrypted="U2FsdGVkX1+dQ/vXSC3trskKZdO5clGpIKfIu2c4PrOoBtAzfvi0X3RdWf+YM8ZUdwmmaLXyiZEJ+WlBhZ59hB33chIihcbUR2rgoQM+hnwZpMByjvOAu7xP82Q/3iFXOuBwwA1aDu5dTSvo8R3DGYj4F/W/sGR3TXb94wWAWYTgGednvwNcl3hbXkbiDLuo8rCHv1F326nkycxDiBwFnilBnj787MaixyHjVlIDh02DXXhSoxg2EOMXsAejdrI2cIaBVbqju283/D0WNOXkn30i5J9DGJNjj71WP7VgO22YhDixAHdNkT+zYI5z1Kc1UZGwrgG9ogfkKYSFyeEmziUHknrbCuhFZhDNYtP4CQjztNvRD9MgqQqoayBmgZnaYQMGzZdiyWBJK8CDmdU3CqfhVQmD5ZhALUBekTi+lRh4cMlDAmeCqvi2PM1IWmVcgOLWCKhzhxaEvvFJ/qDZK2HqWsSRI2DvN+t8Tj8bKoVN43LdnEAZNWKjagO7hnSAIBPG6f12j2bDnmTNrYh8TaSKPN3/m5VQNkUiAPcx4Mjb7q9GHZU+x3fVpoL7kVWlCM7bJvjq8qTXU15lI1D1FGeN838NQkTTGs5KtHr9q00BIl3mt/UpiaQAPN9lD0kxqnHdMUO/GHLGtKntlUfaVZDT2pfSJJwtLHV0wXnFnoINoeoLJiJ9mYj1u0vz4NVgi8RG+jX3SQhy29F6ldsEcAIuHGBJ70dJFHwQ31KeAQe/vahRD7e9YL+Wu9/lTRresXtm+58KMp4UkwmyL7caCs/4yYDXwpZSsW1egaEXwTqyuKEhcZ0pGOa55gLFIK2orVdh19i4nreaHMMInppNawip5AkXJhMgO4QZQgTNqK2yOcurwv60iXdVDT+6SNWxEVX7P/XT7fwiwfT9p9h2zbJP7VdRRFnBeAaCYtb6S8a/LkR8423O5P+so3cRGAyj36SB5AVoIijis4NgPx+2C3DSijzXZCixpsoRnn3QA58D8J3z5BcWKrGaKW32pgeKz/XcouOClszQp0yIS+YPFA=="
+        data-shasum="cb4116cc39db87be9e96da78672657216090bbd43b67b7e72fd4a57f3f649e66"
+        v-model="crypto"
+    />
+    <transition name="fade">
+        <div class="content" ref="content" v-show="cryptoStatus === 'success'"></div>
+    </transition>
+    
+    
+    
+    <div id="comment">
+        <div id="gitalk-container"></div>
     </div>
-    
-    
     
     
     
@@ -312,6 +334,20 @@
     
     
     
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "Ov23liSkq2rg9l82jaBh# Default ClientID",
+        clientSecret: "618cea16ac9827b0c42c793db6fc492886bb95bc# Default ClientSecret",
+        repo: "blog-gitalk-comments# The name of repository of store comments",
+        owner: "k4641321# GitHub repo owner",
+        admin: "k4641321# GitHub repo owner and collaborators, only these guys can initialize github issues".split(","),
+        language: "",
+        id: location.pathname,
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
 
 
 
