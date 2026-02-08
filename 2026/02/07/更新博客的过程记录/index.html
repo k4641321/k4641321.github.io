@@ -228,7 +228,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%BC%80%E5%8F%91/" style="color: #03a9f4">
+                <a href="/tags/%E5%BC%80%E5%8F%91/" style="color: #ff7d73">
                     开发
                 </a>
             </span>
@@ -240,19 +240,19 @@
             <span class="icon">
                 <i class="fa-solid fa-file-word fa-fw"></i>
             </span>
-            1.8k 字
+            2.6k 字
         </span>
         <span class="reading-time">
             <span class="icon">
                 <i class="fa-solid fa-clock fa-fw"></i>
             </span>
-                9 分钟
+                12 分钟
         </span>
     </div>
     
     <div class="content" v-pre>
         
-    <div id="aplayer-rTsPjOjU" class="aplayer aplayer-tag-marker meting-tag-marker"
+    <div id="aplayer-jWVrWcMU" class="aplayer aplayer-tag-marker meting-tag-marker"
          data-id="2022319246" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"
     ></div>
 <h1 id="最近觉得自己博客太单调想加点新内容过程稍微有点波折故记录一下"><a class="markdownIt-Anchor" href="#最近觉得自己博客太单调想加点新内容过程稍微有点波折故记录一下"></a> 最近觉得自己博客太单调，想加点新内容，过程稍微有点波折，故记录一下</h1>
@@ -536,7 +536,112 @@
     &lt;/script&gt;
 </code></pre>
 <h3 id="评论系统恢复使用了gitalk"><a class="markdownIt-Anchor" href="#评论系统恢复使用了gitalk"></a> 评论系统恢复，使用了gitalk</h3>
-<p>这样避免免费的数据库因为没用给我收回去了</p>
+<p>这样避免免费的数据库因为没用给我收回去了<br>
+但配置好遇到了一个问题，如果lable标签超过50个字符，无法评论，网上查了使用md5编码以解决，但有人反馈还有问题<br>
+在<strong>test3</strong>文章中，测试了评论发现标签为<code>/2025/11/20/test3/</code>，对于我来说，只有知道文章标题就够了<br>
+我直接问deepseek</p>
+<blockquote>
+<p>我想id只保留文章标题，不要前面路径</p>
+</blockquote>
+<p><s>ai还是太好用了</s><br>
+deepseek给出了如下方案：</p>
+<ul>
+<li><strong>使用文章标题</strong></li>
+</ul>
+<pre><code>&lt;script&gt;
+    const gitalk = new Gitalk(&#123;
+        clientID: &quot;&lt;%- theme.gitalk.clientID %&gt;&quot;,
+        clientSecret: &quot;&lt;%- theme.gitalk.clientSecret %&gt;&quot;,
+        repo: &quot;&lt;%- theme.gitalk.repo %&gt;&quot;,
+        owner: &quot;&lt;%- theme.gitalk.owner %&gt;&quot;,
+        admin: &quot;&lt;%- theme.gitalk.admin %&gt;&quot;.split(&quot;,&quot;),
+        language: &quot;&lt;%- theme.gitalk.language %&gt;&quot;,
+        id: &quot;&lt;%- page.title %&gt;&quot;, // 直接使用文章标题
+        &lt;% if (theme.gitalk.proxy) &#123; %&gt;
+        proxy: &quot;&lt;%- theme.gitalk.proxy %&gt;&quot;,
+        &lt;% &#125; %&gt;
+    &#125;)
+    gitalk.render(&quot;gitalk-container&quot;);
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li><strong>使用slug</strong> <s><em>我也不知道这是啥，能用就行</em></s></li>
+</ul>
+<pre><code>&lt;script&gt;
+    const gitalk = new Gitalk(&#123;
+        clientID: &quot;&lt;%- theme.gitalk.clientID %&gt;&quot;,
+        clientSecret: &quot;&lt;%- theme.gitalk.clientSecret %&gt;&quot;,
+        repo: &quot;&lt;%- theme.gitalk.repo %&gt;&quot;,
+        owner: &quot;&lt;%- theme.gitalk.owner %&gt;&quot;,
+        admin: &quot;&lt;%- theme.gitalk.admin %&gt;&quot;.split(&quot;,&quot;),
+        language: &quot;&lt;%- theme.gitalk.language %&gt;&quot;,
+        id: &quot;&lt;%- page.slug || page.title %&gt;&quot;, // 优先使用slug
+        &lt;% if (theme.gitalk.proxy) &#123; %&gt;
+        proxy: &quot;&lt;%- theme.gitalk.proxy %&gt;&quot;,
+        &lt;% &#125; %&gt;
+    &#125;)
+    gitalk.render(&quot;gitalk-container&quot;);
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li><strong>清理路径获取纯标题</strong></li>
+</ul>
+<pre><code>&lt;script&gt;
+    // 从路径中提取标题
+    function getTitleFromPath(path) &#123;
+        // 去除路径中的日期部分（如：/2024/01/01/title/）
+        const pathSegments = path.split('/').filter(segment =&gt; segment);
+        // 返回最后一个非空段，通常是标题
+        return pathSegments[pathSegments.length - 1] || 'default';
+    &#125;
+    
+    const gitalk = new Gitalk(&#123;
+        clientID: &quot;&lt;%- theme.gitalk.clientID %&gt;&quot;,
+        clientSecret: &quot;&lt;%- theme.gitalk.clientSecret %&gt;&quot;,
+        repo: &quot;&lt;%- theme.gitalk.repo %&gt;&quot;,
+        owner: &quot;&lt;%- theme.gitalk.owner %&gt;&quot;,
+        admin: &quot;&lt;%- theme.gitalk.admin %&gt;&quot;.split(&quot;,&quot;),
+        language: &quot;&lt;%- theme.gitalk.language %&gt;&quot;,
+        id: getTitleFromPath(location.pathname), // 使用处理后的标题
+        &lt;% if (theme.gitalk.proxy) &#123; %&gt;
+        proxy: &quot;&lt;%- theme.gitalk.proxy %&gt;&quot;,
+        &lt;% &#125; %&gt;
+    &#125;)
+    gitalk.render(&quot;gitalk-container&quot;);
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li><strong>使用文章的唯一标识</strong></li>
+</ul>
+<pre><code>&lt;script&gt;
+    // 使用日期+标题的组合确保唯一性
+    function getArticleId() &#123;
+        // 如果有页面元数据，使用日期+标题
+        &lt;% if (page.date &amp;&amp; page.title) &#123; %&gt;
+            return &quot;&lt;%- page.date.format('YYYY-MM-DD') %&gt;-&lt;%- page.title %&gt;&quot;;
+        &lt;% &#125; else &#123; %&gt;
+            return &quot;&lt;%- page.title %&gt;&quot;;
+        &lt;% &#125; %&gt;
+    &#125;
+    
+    const gitalk = new Gitalk(&#123;
+        clientID: &quot;&lt;%- theme.gitalk.clientID %&gt;&quot;,
+        clientSecret: &quot;&lt;%- theme.gitalk.clientSecret %&gt;&quot;,
+        repo: &quot;&lt;%- theme.gitalk.repo %&gt;&quot;,
+        owner: &quot;&lt;%- theme.gitalk.owner %&gt;&quot;,
+        admin: &quot;&lt;%- theme.gitalk.admin %&gt;&quot;.split(&quot;,&quot;),
+        language: &quot;&lt;%- theme.gitalk.language %&gt;&quot;,
+        id: getArticleId(), // 生成唯一的id
+        &lt;% if (theme.gitalk.proxy) &#123; %&gt;
+        proxy: &quot;&lt;%- theme.gitalk.proxy %&gt;&quot;,
+        &lt;% &#125; %&gt;
+    &#125;)
+    gitalk.render(&quot;gitalk-container&quot;);
+&lt;/script&gt;
+</code></pre>
+<p>我选择了slug的方案，最后评论的标签像这样：<br>
+<code>APlayer配置留存</code><br>
+能用👍🏻</p>
 <h4 id="至此博客更新结束"><a class="markdownIt-Anchor" href="#至此博客更新结束"></a> 至此，博客更新结束</h4>
 
     </div>
