@@ -3,7 +3,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8" />
-    <title>Categories: test | k4641321の魔法小屋</title>
+    <title>C盘空间去哪了？ | k4641321の魔法小屋</title>
     <meta name="author" content="k4641321" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -42,6 +42,13 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.css" />
 
 
 
@@ -188,36 +195,20 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/categories/%E6%B8%B8%E6%88%8F/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                游戏
-            </a>
+            <div class="article">
+    <div>
+        <h1>C盘空间去哪了？</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/3/15
         </span>
         
-        
-        
-        <span>
-            <a href="/categories/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                ???
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E7%B3%BB%E7%BB%9F-%E8%BD%AF%E4%BB%B6/" style="background: #03a9f4">
+        <span class="category">
+            <a href="/categories/%E7%B3%BB%E7%BB%9F-%E8%BD%AF%E4%BB%B6/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -226,170 +217,81 @@
         </span>
         
         
-        
-        <span>
-            <a href="/categories/%E5%BC%80%E5%8F%91/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                开发
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">
+                    系统
+                </a>
+            </span>
+            
         </span>
         
-        
-        
-        <span>
-            <a href="/categories/test/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                test
-            </a>
+         <!-- 添加字数统计 -->
+        <span class="word-count">
+            <span class="icon">
+                <i class="fa-solid fa-file-word fa-fw"></i>
+            </span>
+            596 字
         </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/categories/%E5%8D%9A%E5%AE%A2/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                博客
-            </a>
+        <span class="reading-time">
+            <span class="icon">
+                <i class="fa-solid fa-clock fa-fw"></i>
+            </span>
+                2 分钟
         </span>
-        
-        
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2025/11/20</div>
-            <a href="/2025/11/20/test3/">
-                <h3>test3</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/test/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        test
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/test/" style="color: #00a596">
-                            test
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <p>c盘变红了，又到了清理c盘空间的时候了，总结一下c盘到底什么东西占用那么大<br>
+我使用了<strong>SpaceSniffer</strong>来查看我的空间去哪了</p>
+<h4 id="系统上"><a class="markdownIt-Anchor" href="#系统上"></a> 系统上</h4>
+<ul>
+<li>WindosApps</li>
+</ul>
+<blockquote>
+<p>清理不了，这是巨婴设计的bug；正常会保存一个新版本的安装文件，但是你卸载之后，这个文件还在。如果重新下载，版本不一致又会多一个，导致用久了会越来越大。最好的办法是，每隔2年重置一次系统。下面说的办法都没用，别尝试了，官方都说了是系统受控的，所有权给谁都没用，最多只是能看与不能看的问题，删是删不掉的<br>
+作者：知乎用户<br>
+链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/3023163949/answer/2002870649593542505">https://www.zhihu.com/question/3023163949/answer/2002870649593542505</a><br>
+来源：知乎<br>
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+<p>是的是的，我的<strong>Program Files/WindowsApps</strong>文件夹达到了惊人的<strong>8G</strong><br>
+那么猜猜，是什么文件夹最大？<br>
+居然是<strong>Windows图片</strong>¿，这b东西居然<strong>857.2MB</strong>，一个看图软件我都不知道塞了什么进去</p>
+<ul>
+<li>LCU</li>
+</ul>
+<blockquote>
+<p>这些文件主要是更新安装过程中使用的临时文件，安装完成后它们的使命已经完成。如果系统没有出现故障，删除这些文件通常不会对系统的正常运行产生直接影响。不过，删除后可能会影响系统回滚已安装更新的能力，因此建议在删除前确保系统正常。</p>
+</blockquote>
+<p>在我的电脑里，第二大的是<strong>Windows/servicing/LCU</strong>文件夹，达到了惊人的<strong>2.4G</strong>，里面还有两个文件夹，<em>hyw</em></p>
+<ul>
+<li>winevt/logs</li>
+</ul>
+<blockquote>
+<p>Windows事件日志存储在路径 C:\Windows\System32\winevt\Logs 中，主要包括系统日志、安全日志和应用程序日志。这些日志文件记录了系统运行中的重要事件，但长期积累可能会占用大量磁盘空间，尤其是在服务器环境中。</p>
+</blockquote>
+<p>整个<strong>Windows/System32/winevt/Logs</strong>文件夹达到了1G，其中<strong>Security.evtx</strong>达到了<strong>849.0MB</strong></p>
+<h4 id="用户上"><a class="markdownIt-Anchor" href="#用户上"></a> 用户上</h4>
+<p>网上说什么Temp文件夹多对我来讲完全不可能的，最大的其实是你<strong>User/用户名/AppData</strong>大，我的达到了<strong>12.6G</strong>，其中<strong>Local</strong>文件夹<strong>6.8G</strong>，<strong>Roaming</strong>文件夹<strong>5.6G</strong></p>
+
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/12/23</div>
-            <a href="/2024/12/23/test2/">
-                <h3>test2</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/test/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        test
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/test/" style="color: #03a9f4">
-                            test
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%9B%BE%E7%89%87/" style="color: #00a596">
-                            图片
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    
+    
+    <div id="comment">
+        <div id="gitalk-container"></div>
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/10/1</div>
-            <a href="/2024/10/01/test/">
-                <h3>test</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/test/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        test
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/test/" style="color: #03a9f4">
-                            test
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%8F%AF%E5%90%A6%E4%B8%AD%E6%96%87-%E7%AD%94%E6%A1%88%E6%98%AF%E5%8F%AF/" style="color: #ffa2c4">
-                            可否中文?答案是可
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
-    </div>
+    
+    
+    
     
 </div>
 
@@ -463,6 +365,26 @@
         document.head.appendChild(style);
     </script>
     
+    
+    
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "Ov23liSkq2rg9l82jaBh",
+        clientSecret: "618cea16ac9827b0c42c793db6fc492886bb95bc",
+        repo: "blog-gitalk-comments",
+        owner: "k4641321",
+        admin: "k4641321".split(","),
+        language: "",
+        id: "C盘空间去哪了？",
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
+
+
+
+
     
 <!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},mobileDisplay:true,models:[{"path":"/live2d_models/chino/chino.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,35],"scale":0.15,"stageStyle":{"width":250,"height":250}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:false,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% + 50px)","top":"-100px"},idleTips:{interval:1000,message:["你好呀~","欢迎来到我的小站~","要来点咖啡吗~","你复制了什么内容呢?记得注明出处哦~"],wordTheDay:function(wordTheDayData){
   return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
