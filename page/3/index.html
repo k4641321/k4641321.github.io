@@ -3,7 +3,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8" />
-    <title>Categories: 博客 | k4641321の魔法小屋</title>
+    <title>k4641321の魔法小屋</title>
     <meta name="author" content="k4641321" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -46,6 +46,8 @@
 
 
 
+
+<script src="/js/lib/home.js"></script>
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -188,58 +190,42 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/categories/%E6%B8%B8%E6%88%8F/" style="background: #ffa2c4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                游戏
-            </a>
+            <div id="home-head">
+    <div
+        id="home-background"
+        ref="homeBackground"
+        data-images="https://t.alcy.cc/moez"
+    ></div>
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>k4641321の魔法小屋</h1>
+                <h3>奇迹与魔法是并存的</h3>
+                <h5></h5>
+            </div>
         </span>
+    </div>
+</div>
+<div
+    id="home-posts-wrap"
+    ref="homePostsWrap"
+    true
+>
+    <div id="home-posts">
         
+
+<div class="post">
+    <a href="/2024/10/01/test/">
+        <h2 class="post-title">test</h2>
+    </a>
+    <div class="category-and-date">
         
-        
-        <span>
-            <a href="/categories/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                ???
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E7%B3%BB%E7%BB%9F-%E8%BD%AF%E4%BB%B6/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                系统&amp;软件
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E5%BC%80%E5%8F%91/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                开发
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/test/" style="background: #ffa2c4">
+        <span class="category">
+            <a href="/categories/test/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -247,58 +233,121 @@
             </a>
         </span>
         
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/10/1
+        </span>
         
         
-        <span>
-            <a href="/categories/%E5%8D%9A%E5%AE%A2/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                博客
-            </a>
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>不填简介无法取消预览</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
         </span>
         
         
         
+        <span class="tag">
+            
+            <a href="/tags/test/" style="color: #03a9f4">test</a>
+        </span>
+        
+        <span class="tag">
+            
+            <a href="/tags/%E5%8F%AF%E5%90%A6%E4%B8%AD%E6%96%87-%E7%AD%94%E6%A1%88%E6%98%AF%E5%8F%AF/" style="color: #ffa2c4">可否中文?答案是可</a>
+        </span>
         
     </div>
+    <a href="/2024/10/01/test/" class="go-post">阅读全文</a>
+</div>
+
+
+        <div class="page-current">
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2026/2/7</div>
-            <a href="/2026/02/07/%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">
-                <h3>更新博客的过程记录</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E5%8D%9A%E5%AE%A2/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        博客
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%BC%80%E5%8F%91/" style="color: #ff7d73">
-                            开发
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
+    <a class="page-num" href="/page/2/">
+        <i class="fa-solid fa-caret-left fa-fw"></i>
+    </a>
+    <a class="page-num" href="/">1</a>
+    <span class="page-omit">...</span>
+    
+    <span class="current">3</span>
+    
+    
+    
+    
+</div>
+
+    </div>
+    
+    <div id="home-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/avatar.png" alt="avatar" />
         </div>
+        <div class="name">k4641321</div>
+        <div class="description">
+            <p>时不时发点新玩意<br>
+<strong>支持一下吧</strong><br>
+…</p>
+
+        </div>
+        
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/k4641321">
+                    <i
+                        class="fa-brands fa-github fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://b23.tv/y6u1Vyy">
+                    <i
+                        class="fa-brands fa-bilibili fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://ifdian.net/a/k4641321">
+                    <i
+                        class="fa-solid fa-bolt fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+        </div>
+        
+        
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a href="https://blog.4641321.xyz/oldhtml">oldhtml</a>
+            </div>
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="http://blog.nostos.xin/">柊千世的引导页</a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
     </div>
     
 </div>
