@@ -3,7 +3,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="utf-8" />
-    <title>Categories: 游戏 | k4641321の魔法小屋</title>
+    <title>记一次双系统引导修复 | k4641321の魔法小屋</title>
     <meta name="author" content="k4641321" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -42,6 +42,13 @@
 
 
 <script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.css" />
 
 
 
@@ -188,38 +195,20 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
-        
-        
-        
-        <span>
-            <a href="/categories/%E6%B8%B8%E6%88%8F/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                游戏
-            </a>
+            <div class="article">
+    <div>
+        <h1>记一次双系统引导修复</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/3/29
         </span>
         
-        
-        
-        
-        
-        <span>
-            <a href="/categories/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                ???
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E7%B3%BB%E7%BB%9F-%E8%BD%AF%E4%BB%B6/" style="background: #ff7d73">
+        <span class="category">
+            <a href="/categories/%E7%B3%BB%E7%BB%9F-%E8%BD%AF%E4%BB%B6/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
@@ -228,238 +217,127 @@
         </span>
         
         
-        
-        <span>
-            <a href="/categories/%E5%BC%80%E5%8F%91/" style="background: #03a9f4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                开发
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/Linux/" style="color: #ff7d73">
+                    Linux
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">
+                    系统
+                </a>
+            </span>
+            
         </span>
         
-        
-        
-        <span>
-            <a href="/categories/test/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                test
-            </a>
+         <!-- 添加字数统计 -->
+        <span class="word-count">
+            <span class="icon">
+                <i class="fa-solid fa-file-word fa-fw"></i>
+            </span>
+            654 字
         </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E5%8D%9A%E5%AE%A2/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                博客
-            </a>
+        <span class="reading-time">
+            <span class="icon">
+                <i class="fa-solid fa-clock fa-fw"></i>
+            </span>
+                2 分钟
         </span>
-        
-        
-        
-        <span>
-            <a href="/categories/%E6%B8%B8%E6%88%8F-%E8%BD%AF%E4%BB%B6/" style="background: #00bcd4">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                游戏&amp;软件
-            </a>
-        </span>
-        
-        
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2025/9/19</div>
-            <a href="/2025/09/19/%E5%8F%8D%E5%B0%8F%E9%BB%91%E5%B1%8B%E7%9A%84%E6%80%9D%E8%B7%AF/">
-                <h3>反小黑屋的思路</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E6%B8%B8%E6%88%8F/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        游戏
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E6%B4%97%E8%A1%A3%E6%9C%BA/" style="color: #03a9f4">
-                            洗衣机
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>有一台十年前配置的电脑，之前装了Ubuntu24.04，原本是当服务器用的，偶尔开起来开mc服务器，最近因为种种原因，接了显示屏用，天天修那b依赖给我修火了，游戏还玩不了多少，于是想到了双系统</p>
+<h2 id="过程"><a class="markdownIt-Anchor" href="#过程"></a> 过程</h2>
+<div class="markdown-alert markdown-alert-caution"><p class="markdown-alert-title"><svg class="octicon octicon-stop mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Caution</p><p>我电脑是用的引导是<strong>Legacy</strong>，不是<strong>UEFI</strong></p>
+</div>
+<p>按照网上的教程，要先分出一块空间给windows，根据dp和网上的教程，要先进入Ubuntu live进行分区</p>
+<blockquote>
+<p>说实话这用pe直接分区应该也是可以的吧，但我还是用Ubuntu live分区了</p>
+</blockquote>
+<p>我装的是win7，所以留了35G空间(原本是40G的，后面分了5G给pe)</p>
+<blockquote>
+<p>从七七八八的网站上下载win7镜像还是坏的，找了十几个下载才好，给我气笑了</p>
+</blockquote>
+<p>接着进入pe(直接镜像进去也可以)，安装系统</p>
+<p>安装完成后，就是引导问题，我原本想主引导Windows NT，dp说还需要grub4dos，了解了一下grub4dos，那还不如直接用grub4dos</p>
+<p>dp给的是这样的：</p>
+<pre><code>default 0
+timeout 5
+
+title Windows 10
+    root (hd0,0)
+    chainloader /bootmgr
+
+title Windows PE
+    root (hd0,1)
+    chainloader /bootmgr
+
+title Linux
+    root (hd0,4)
+    kernel /boot/vmlinuz-xxx root=/dev/sda5 ro
+    initrd /boot/initrd.img
+
+title Command Line
+    commandline
+</code></pre>
+<p>骗你的，根本用不了，得根据你实际情况来改</p>
+<h3 id="详细过程"><a class="markdownIt-Anchor" href="#详细过程"></a> 详细过程</h3>
+<p>进入pe，用bootice安装完成grub4dos后，重启进入grub4dos命令行模式<br>
+grub4dos支持tab键补全，你可以用<code>root</code>命令加<code>tab键</code>查看当前所有分区(当然你在分区软件里看分区序号也是可以的)</p>
+<p>例如我这里：</p>
+<ul>
+<li>root (hd0,0)是乌班图的分区</li>
+<li>root (hd0,1)是win7的分区</li>
+<li>root (hd0,2)是pe的分区</li>
+</ul>
+<p>然后这样写</p>
+<pre><code>default 0 #默认选项
+timeout 5 #等待5秒
+
+title Ubuntu 24.04
+    root (hd0,0)
+    kernel /boot/vmlinuz-6.8.0-106-generic root=/dev/sda1 ro
+    initrd /boot/initrd.img--6.8.0-106-generic
+    boot #其实可有可无，我CLI测试时有用就顺便加上去了
+    
+title Windows 7
+    root (hd0,1)
+    chainloader /bootmgr
+    boot
+    
+title EasyU
+    root (hd0,2)
+    chainloader /bootmgr
+    boot
+    
+title Command Line
+    commandline
+</code></pre>
+<div class="markdown-alert markdown-alert-caution"><p class="markdown-alert-title"><svg class="octicon octicon-stop mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Caution</p><p><strong>kernel与initrd一定要根据你自己实际情况写，dp给我的是<code>vmlinuz</code>与<code>vmlinuz</code>，而我实际可以像上面这样写</strong></p>
+</div>
+<p>保存到<strong>已激活分区的根目录</strong>(例如我这里为C，win7的系统盘)，文件名为<code>meni.lst</code>，接着你还需要<code>grldr</code>与<code>grldr.mbr</code>，但是dp给的链接没用了，幸好是国人做的，很快找到了<a target="_blank" rel="noopener" href="http://dl.grub4dos.chenall.net/grub4dos-0.4.6a-2026-01-19.7z%5D">下载链接</a>，下载之后按照dp的教程，把里面的<strong>grldr</strong>与<strong>grldr.mbr</strong>复制到<strong>激活分区的根目录下</strong>，重启就完成了</p>
+
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2025/8/31</div>
-            <a href="/2025/08/31/%E6%9F%90%E6%B8%B8%E6%88%8F%E7%9A%84%E8%A7%A3%E5%AF%86%E7%BB%8F%E9%AA%8C/">
-                <h3>某游戏的解密经验</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E6%B8%B8%E6%88%8F/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        游戏
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E6%B4%97%E8%A1%A3%E6%9C%BA/" style="color: #ffa2c4">
-                            洗衣机
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    
+    
+    <div id="comment">
+        <div id="gitalk-container"></div>
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/12/24</div>
-            <a href="/2024/12/24/%E5%85%B3%E4%BA%8EGINKA%E7%9B%B4%E8%A3%85%E7%89%88%E5%B4%A9%E6%BA%83%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
-                <h3>关于GINKA直装版崩溃的解决方法</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E6%B8%B8%E6%88%8F/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        游戏
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/galgame/" style="color: #03a9f4">
-                            galgame
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/%E5%90%89%E9%87%8C%E5%90%89%E9%87%8C/" style="color: #00bcd4">
-                            吉里吉里
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/GINKA/" style="color: #ffa2c4">
-                            GINKA
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
-    </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/11/26</div>
-            <a href="/2024/11/26/arcaeab30/">
-                <h3>关于chieri bot的arcaea传分端的制作</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E6%B8%B8%E6%88%8F/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        游戏
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/arcaea/" style="color: #03a9f4">
-                            arcaea
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/qqbot/" style="color: #00a596">
-                            qqbot
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/chieri/" style="color: #ff7d73">
-                            chieri
-                        </a>
-                    </span>
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/b30/" style="color: #03a9f4">
-                            b30
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
-    </div>
+    
+    
     
 </div>
 
@@ -533,6 +411,26 @@
         document.head.appendChild(style);
     </script>
     
+    
+    
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "Ov23liSkq2rg9l82jaBh",
+        clientSecret: "618cea16ac9827b0c42c793db6fc492886bb95bc",
+        repo: "blog-gitalk-comments",
+        owner: "k4641321",
+        admin: "k4641321".split(","),
+        language: "",
+        id: "记一次双系统引导修复",
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
+
+
+
+
     
 <!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},mobileDisplay:true,models:[{"path":"/live2d_models/chino/chino.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,35],"scale":0.15,"stageStyle":{"width":250,"height":250}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:false,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% + 50px)","top":"-100px"},idleTips:{interval:1000,message:["你好呀~","欢迎来到我的小站~","要来点咖啡吗~","你复制了什么内容呢?记得注明出处哦~"],wordTheDay:function(wordTheDayData){
   return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
