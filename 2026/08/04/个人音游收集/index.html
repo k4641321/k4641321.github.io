@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <title>个人音游收集 | k4641321の魔法小屋</title>
+    <meta name="author" content="k4641321" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.png" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.css" />
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <style>
+        /* 自定义加载页面样式 */
+        #dynamic-saying {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+            text-align: center;
+            line-height: 1.4;
+            padding: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            #dynamic-saying {
+                font-size: 20px;
+                padding: 5px;
+                min-height: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #dynamic-saying {
+                font-size: 18px;
+            }
+        }
+    </style>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <div id="dynamic-saying">
+                        <span class="default-text">正在加载...</span>
+                    </div>
+                    <!-- <p>加载过慢请开启缓存 浏览器默认开启</p> -->
+                    <img style="width:75%;height:75%" src="/images/loading1.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>K4641321の魔法小屋</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;K4641321の魔法小屋</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>个人音游收集</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/8/4
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E6%B8%B8%E6%88%8F/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                游戏
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/%E9%9F%B3%E6%B8%B8/" style="color: #00a596">
+                    音游
+                </a>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E6%B8%B8%E6%88%8F/" style="color: #ff7d73">
+                    游戏
+                </a>
+            </span>
+            
+        </span>
+        
+         <!-- 添加字数统计 -->
+        <span class="word-count">
+            <span class="icon">
+                <i class="fa-solid fa-file-word fa-fw"></i>
+            </span>
+            1.8k 字
+        </span>
+        <span class="reading-time">
+            <span class="icon">
+                <i class="fa-solid fa-clock fa-fw"></i>
+            </span>
+                6 分钟
+        </span>
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="移动端"><a class="markdownIt-Anchor" href="#移动端"></a> 移动端</h1>
+<h2 id="非偶像音游"><a class="markdownIt-Anchor" href="#非偶像音游"></a> 非偶像音游</h2>
+<h3 id="arcaea"><a class="markdownIt-Anchor" href="#arcaea"></a> Arcaea</h3>
+<p><a target="_blank" rel="noopener" href="https://arcaea.lowiro.com/">https://arcaea.lowiro.com/</a><br>
+4k+天键+蛇，曲库丰富<br>
+有剧情，有难度，有好看的角色<br>
+<img src="https://arcaea.lowiro.com/assets/zh_1-BJlvP3Sw.jpg" alt=""><br>
+<img src="https://arcaea.lowiro.com/assets/en_2-B4H64sm7.jpg" alt=""></p>
+<h3 id="phigros"><a class="markdownIt-Anchor" href="#phigros"></a> Phigros</h3>
+<p>taptap下<br>
+2d平面，判定线多变，曲库中等偏下<br>
+<img src="https://img-tc.tapimg.com/market/images/58edb2120b15a9a192d937fed7086094.png/_tap_screenshot.jpg" alt=""></p>
+<h3 id="hexa-hysteria"><a class="markdownIt-Anchor" href="#hexa-hysteria"></a> Hexa Hysteria</h3>
+<p><a target="_blank" rel="noopener" href="https://wiseyestudio.com/hexahysteria/">https://wiseyestudio.com/hexahysteria/</a><br>
+要去play商店下<br>
+六边形，曲子优美，故事精彩，唯美画风，上手快，难度适中，曲子较少<br>
+<img src="https://wiseyestudio.com/wp-content/uploads/2022/08/3-768x432.png" alt=""><br>
+<img src="https://wiseyestudio.com/wp-content/uploads/2022/08/1-768x432.png" alt=""><br>
+<img src="https://wiseyestudio.com/wp-content/uploads/2022/08/4-768x432.png" alt=""><br>
+看官网时发现还有新作 Lily Fantasia</p>
+<h3 id="muse-dash"><a class="markdownIt-Anchor" href="#muse-dash"></a> Muse Dash</h3>
+<p><a target="_blank" rel="noopener" href="https://musedash.peropero.net/">https://musedash.peropero.net/</a><br>
+来自官网：<br>
+你喜欢可爱的美少女角色？</p>
+<p>还是节奏感十足的音乐？</p>
+<p>如果有一个地方可以同时满足这两个愿望……</p>
+<p>那就是狂拽跑酷和传统音游结合的世界<br>
+2k音游，有难度，音游社交花，啥都联动，曲库中等偏上</p>
+<h3 id="takumi3"><a class="markdownIt-Anchor" href="#takumi3"></a> TAKUMI³</h3>
+<p><a target="_blank" rel="noopener" href="https://takumi3.straycubic.com/">https://takumi3.straycubic.com/</a><br>
+来自萌百：<br>
+TAKUMI³是一款下落式音游。游戏过程中轨道并非定轨，可以左右移动也可以改变宽度。下落Note的宽度也会随轨道宽度的变化而变化<br>
+<img src="https://takumi3.straycubic.com/featured_images/trimmed/center.png" alt=""></p>
+<h3 id="ravon"><a class="markdownIt-Anchor" href="#ravon"></a> RAVON</h3>
+<p>play商店下载<br>
+来自萌百：<br>
+RAVON的游戏界面为3×5按键格局（OVERNIGHT难度为4×6），音符朝对应按键的判定线所在的四个方向接近，而对应键的判定线也会出现交叉的情况</p>
+<h3 id="orzmic"><a class="markdownIt-Anchor" href="#orzmic"></a> Orzmic</h3>
+<p>taptap下载<br>
+经典下落式无轨，曲库中等</p>
+<h3 id="lanota"><a class="markdownIt-Anchor" href="#lanota"></a> Lanota</h3>
+<p>play商店下载<br>
+<a target="_blank" rel="noopener" href="https://noxygames.com/lanota/section3img2.jpg">https://noxygames.com/lanota/section3img2.jpg</a><br>
+来自萌百：<br>
+由于游戏在一个会移动、转圈、鬼畜的盘子上进行（判定线就是盘子的外圈），下落方向也可能是360度中的任意方向，因此该游戏上手难度比其他固定轨道的下落式音游要高。里莫的洗衣机～<br>
+有剧情，曲库中等<br>
+<img src="https://noxygames.com/lanota/section3img2.jpg" alt=""></p>
+<h3 id="overrapid"><a class="markdownIt-Anchor" href="#overrapid"></a> OverRapid</h3>
+<p>来着萌百：<br>
+OverRapid由包括litmus*等韩国著名音游曲师组成的游戏开发团队Team ArcStar制作，是一款具有基于4/6K传统下落式，但相对传统玩法又有所拓展的基本玩法，且游戏艺术设计具有科幻风格的移动端音乐游戏。</p>
+<h3 id="kalpa"><a class="markdownIt-Anchor" href="#kalpa"></a> KALPA</h3>
+<p>play商店下：<br>
+有剧情，有广告(嗯，有广告)，非play商店下登不上，被搞退坑了<br>
+5k定轨</p>
+<h3 id="dynamix"><a class="markdownIt-Anchor" href="#dynamix"></a> Dynamix</h3>
+<p>来自萌百：<br>
+Dynamix采用三面下落式音乐游戏玩法，音乐种类以电子音乐为主，包括Trancecore、 Hardcore、 Glitch、 Oriental、 Chiptune等风格，同时还会通过版本更新追加紧跟潮流的音乐风格，例如Dubstep、和式电音、Psytrance、 Breakbeat等时下最热门的音乐元素。玩家在Dynamix中将可以自由选择配搭上百个音乐谱面进行挑战，从适合新手玩家的Casual（萌新难度）（1-6）[1]，Normal（入门难度）（4-9），Hard（资深难度）（7-13）和进阶的Mega（大佬难度）（4、11-15），以及针对专业玩家的Giga（神仙难度）（11-15、41、91）。由简到难，同一首曲子也能带来不同难度的新玩法，全面满足不同水平玩家的音乐梦想。</p>
+<h3 id="dancerail3"><a class="markdownIt-Anchor" href="#dancerail3"></a> DanceRail3</h3>
+<p>没玩过，不了解，但知道有这一款</p>
+<h3 id="chainbeet"><a class="markdownIt-Anchor" href="#chainbeet"></a> ChainBeeT</h3>
+<p>来自萌百：<br>
+ChainBeeT采用无轨式传统下落的游戏形式（但如果仔细看可以发现，谱面其实仍然是按照固定轨数6/7/8/9轨等的做谱方式来编写的）[3][4]，主要游玩模式包含自由模式和段位认定模式，以及解锁隐藏曲使用的特殊解锁模式。可点击选曲界面左上角的按钮，在自由模式和段位认定模式之间进行切换。<br>
+<img src="https://storage.moegirl.org.cn/moegirl/commons/3/36/Chainbeet_note_type_illustration.png!/fw/800/watermark/url/L21vZWdpcmwvd2F0ZXJtYXJrLnBuZw==/align/southeast/margin/10x10/opacity/50?v=20210207164508" alt=""></p>
+<h3 id="berry-melody"><a class="markdownIt-Anchor" href="#berry-melody"></a> Berry Melody</h3>
+<p>taptap下<br>
+后起的，曲库应该还比较少，小众音游，模式就是malody slide模式(应该没打错)</p>
+<h3 id="beatmania-iidx-ultimate-mobile"><a class="markdownIt-Anchor" href="#beatmania-iidx-ultimate-mobile"></a> Beatmania IIDX Ultimate Mobile</h3>
+<p>没玩过，不清楚，但知道</p>
+<h3 id="deemoiii"><a class="markdownIt-Anchor" href="#deemoiii"></a> DeemoI&amp;II</h3>
+<p>感人的故事，丰富的曲库，优美的钢琴曲，知名曲师作曲，buff叠满了<br>
+<a target="_blank" rel="noopener" href="https://deemo.com/mobile/">https://deemo.com/mobile/</a><br>
+<a target="_blank" rel="noopener" href="https://deemo.com/deemo2/zh-Hans/home">https://deemo.com/deemo2/zh-Hans/home</a><br>
+Deemo I 好像已经更新完了<br>
+Deemo II 在无底洞，到底有多少歌啊😨</p>
+<p>PC有Deemo -reborn-</p>
+<h3 id="rotaeno"><a class="markdownIt-Anchor" href="#rotaeno"></a> Rotaeno</h3>
+<p>taptap可下<br>
+<a target="_blank" rel="noopener" href="https://www.rotaeno.com/en">https://www.rotaeno.com/en</a><br>
+作为第一款旋转手机音乐游戏，Rotaeno的游玩与陀螺仪（或加速度计，下文统称为旋转侦测装置）有关，要求玩家在游玩期间，不仅要跟随节奏点击音符，也要根据谱面旋转设备，开车音游。</p>
+<p>Rotaeno的判定线为圆形，音符会从画面中央出现并向外围移动。玩家的屏幕显示的是圆形的一部分，而音符会360°无死角的出现，这就需要玩家旋转设备改变画面范围，从而打击到原先在画面外的音符。</p>
+<p>曲库中等，什么时候出第四章)</p>
+<h3 id="rizline"><a class="markdownIt-Anchor" href="#rizline"></a> Rizline</h3>
+<p>Rizline的核心玩法是在音符（Note）与判定环重合时，在屏幕上进行相应的操作。在主要玩法上与无轨道下落式音游比较接近，但对触碰位置没有要求。<br>
+翻译：无归下落式全屏判定</p>
+<h3 id="paradigm-reboot"><a class="markdownIt-Anchor" href="#paradigm-reboot"></a> Paradigm: Reboot</h3>
+<p>tap可下<br>
+<a target="_blank" rel="noopener" href="https://paradigm.tunergames.com/">https://paradigm.tunergames.com/</a><br>
+Paradigm: Reboot是一款基于立体空间的音乐游戏。游戏中音符会从屏幕中心出现，并以面朝玩家的方向下落。玩家需要依靠空间感，来判断音符到达判定区域的时机，做出相应的指令。</p>
+<h3 id="cytus-iii"><a class="markdownIt-Anchor" href="#cytus-iii"></a> Cytus I&amp;II</h3>
+<p><a target="_blank" rel="noopener" href="https://rayark.com/g/cytus/mobile/">https://rayark.com/g/cytus/mobile/</a><br>
+<a target="_blank" rel="noopener" href="https://rayark.com/g/cytus2/">https://rayark.com/g/cytus2/</a></p>
+<blockquote>
+<p>就不放龙渊</p>
+</blockquote>
+<p>本作最大的特色就是其非下落式的操作方式。游戏界面包括一条上下匀速运动的扫描线手动艾特左右扫描的DJMax Technika，其扫描频率唯一取决于谱面本身。音符分为三种：普通音符（泡泡），滑动音符（锁链），长按音符（面条）。</p>
+<blockquote>
+<p>此为一作介绍，二作有增加新音符</p>
+</blockquote>
+<p>依旧你雷亚神作</p>
+<h3 id="voez"><a class="markdownIt-Anchor" href="#voez"></a> VOEZ</h3>
+<p><a target="_blank" rel="noopener" href="https://rayark.com/g/voez/">https://rayark.com/g/voez/</a><br>
+与雷亚过去两个音游不同，《VOEZ》以炫丽的轨道变换为主打，随着音乐进行，轨道会产生“出现、消失、移动、闪动、扩大、缩小”等变化</p>
+<h3 id="同步音律"><a class="markdownIt-Anchor" href="#同步音律"></a> 同步音律</h3>
+<p>tap可下<br>
+该游戏在移动端（MUSYNC）和家用端（MUSYNX）上的基本操作方式完全不同。<br>
+家用端的喵赛克，是基于按键的定轨下落式音游。<br>
+移动端的喵赛克，是基于触屏的无轨下落式音游。</p>
+<p>最难音游，至今无人理论</p>
+<h3 id="冰与火之舞"><a class="markdownIt-Anchor" href="#冰与火之舞"></a> 冰与火之舞</h3>
+<p>轨道是本游戏中的谱面展现形式，由一连串的砖块构成。</p>
+<p>玩家是两颗或者三颗星球，其中一颗星球会固定在轨道上，另一颗或者两颗星球则会围绕其旋转。 当旋转中的星球移动到了下一个轨道上，玩家需要按下几乎任意键以触发判定，让另一颗星球继续前进。</p>
+<p>难度高，有PC版本，主要还是社区丰富度</p>
+<h3 id="节奏大师"><a class="markdownIt-Anchor" href="#节奏大师"></a> 节奏大师</h3>
+<p>不用多说了，回归之后也是凭着自身的钞能力曲库不断扩大，谱面跟批发的一样，感觉天天都有谱</p>
+<h3 id="milthm"><a class="markdownIt-Anchor" href="#milthm"></a> Milthm</h3>
+<h1 id="pc端"><a class="markdownIt-Anchor" href="#pc端"></a> PC端</h1>
+<h3 id="djmax-v"><a class="markdownIt-Anchor" href="#djmax-v"></a> DJMAX V</h3>
+<p>定轨音游，曲库丰富，还有bga看，角色可爱</p>
+<h3 id="muse-dash-2"><a class="markdownIt-Anchor" href="#muse-dash-2"></a> Muse Dash</h3>
+<p>讲过了，不再讲</p>
+<h3 id="同步音律-2"><a class="markdownIt-Anchor" href="#同步音律-2"></a> 同步音律</h3>
+<p>讲过了，不再讲</p>
+<h3 id="冰与火之舞-2"><a class="markdownIt-Anchor" href="#冰与火之舞-2"></a> 冰与火之舞</h3>
+<p>讲过了</p>
+<h3 id="in-falsus"><a class="markdownIt-Anchor" href="#in-falsus"></a> In Falsus</h3>
+<p><a target="_blank" rel="noopener" href="https://infalsus.lowiro.com/zh-hans/">https://infalsus.lowiro.com/zh-hans/</a><br>
+<s>音击</s><br>
+4k定轨，天键，两边侧键，所以说6k定轨天键</p>
+<h3 id="milthm-2"><a class="markdownIt-Anchor" href="#milthm-2"></a> Milthm</h3>
+<h3 id="hololive-dreams"><a class="markdownIt-Anchor" href="#hololive-dreams"></a> Hololive Dreams</h3>
+<h1 id="街机"><a class="markdownIt-Anchor" href="#街机"></a> 街机</h1>
+
+    </div>
+    
+    
+    
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2024 - 2026 k4641321の魔法小屋
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;k4641321
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    <script src="/js/title.js"></script>
+    <script src="/js/click.js"></script>
+    
+    <!-- 动态加载诗词API -->
+    <script>
+        // 在页面加载时获取诗词并更新显示
+        document.addEventListener('DOMContentLoaded', function() {
+            const sayingElement = document.getElementById('dynamic-saying');
+            
+            // 从API获取诗词
+            fetch('https://v1.jinrishici.com/rensheng.txt')
+                .then(response => response.text())
+                .then(data => {
+                    if (sayingElement) {
+                        sayingElement.innerHTML = `<span class="poem-text">${data}</span>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('获取诗词失败:', error);
+                    if (sayingElement) {
+                        sayingElement.innerHTML = '<span class="poem-text">人生如逆旅，我亦是行人。</span>';
+                    }
+                });
+        });
+        
+        // 额外的CSS样式，确保诗词显示效果
+        const style = document.createElement('style');
+        style.textContent = `
+            .poem-text {
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+            }
+            .default-text {
+                font-size: inherit;
+                font-weight: inherit;
+                color: inherit;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
+    
+    
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "Ov23liSkq2rg9l82jaBh",
+        clientSecret: "618cea16ac9827b0c42c793db6fc492886bb95bc",
+        repo: "blog-gitalk-comments",
+        owner: "k4641321",
+        admin: "k4641321".split(","),
+        language: "",
+        id: "个人音游收集",
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
+
+
+
+
+    
+<!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},mobileDisplay:true,models:[{"path":"/live2d_models/chino/chino.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,35],"scale":0.15,"stageStyle":{"width":250,"height":250}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:false,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% + 50px)","top":"-100px"},idleTips:{interval:1000,message:["你好呀~","欢迎来到我的小站~","要来点咖啡吗~","你复制了什么内容呢?记得注明出处哦~"],wordTheDay:function(wordTheDayData){
+  return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
+}
+}},then:"(oml2d)=>{\n  setTimeout(() => {\n    oml2d.tipsMessage('hello world', 3000, 10);\n  }, 8000);\n}\n"});</script><!-- hexo injector body_end end --></body>
+</html>
