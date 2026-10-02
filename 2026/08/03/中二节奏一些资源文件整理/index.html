@@ -47,9 +47,6 @@
 
 
 
-<script src="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
-<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.css" />
-
 
 
 
@@ -225,14 +222,14 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E6%B8%B8%E6%88%8F/" style="color: #00bcd4">
+                <a href="/tags/%E6%B8%B8%E6%88%8F/" style="color: #ff7d73">
                     游戏
                 </a>
             </span>
             
             <span class="tag">
                 
-                <a href="/tags/%E4%B8%AD%E4%BA%8C%E8%8A%82%E5%A5%8F/" style="color: #03a9f4">
+                <a href="/tags/%E4%B8%AD%E4%BA%8C%E8%8A%82%E5%A5%8F/" style="color: #00a596">
                     中二节奏
                 </a>
             </span>
@@ -278,10 +275,10 @@
     
     
     
-    <div id="comment">
-        <div id="gitalk-container"></div>
-    </div>
     
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
     
     
     
@@ -360,26 +357,29 @@
     
     
     
+<script
+    src="https://giscus.app/client.js"
+    data-repo="k4641321/blog-gitalk-comments"
+    data-repo-id="R_kgDORK4XZg"
+    data-category="Announcements"
+    data-category-id="DIC_kwDORK4XZs4DG20A"
+    data-mapping="pathname"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="1"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    crossorigin
+    async
+></script>
 
-<script>
-    const gitalk = new Gitalk({
-        clientID: "Ov23liSkq2rg9l82jaBh",
-        clientSecret: "618cea16ac9827b0c42c793db6fc492886bb95bc",
-        repo: "blog-gitalk-comments",
-        owner: "k4641321",
-        admin: "k4641321".split(","),
-        language: "",
-        id: "中二节奏一些资源文件整理",
-        
-    })
-    gitalk.render("gitalk-container");
-</script>
 
 
 
 
     
-<!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({libraryUrls:{"complete":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/complete.js","cubism2":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism2.js","cubism5":"https://registry.npmmirror.com/oh-my-live2d/latest/files/lib/cubism5.js"},mobileDisplay:true,models:[{"path":"/live2d_models/chino/chino.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,35],"scale":0.15,"stageStyle":{"width":250,"height":250}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:false,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% + 50px)","top":"-100px"},idleTips:{interval:1000,message:["你好呀~","欢迎来到我的小站~","要来点咖啡吗~","你复制了什么内容呢?记得注明出处哦~"],wordTheDay:function(wordTheDayData){
+<!-- hexo injector body_end start --><script data-pjax src="https://registry.npmmirror.com/oh-my-live2d/latest/files"></script><script>const oml2d = OML2D.loadOml2d({mobileDisplay:true,models:[{"path":"/live2d_models/chino/chino.model.json","mobilePosition":[-10,23],"mobileScale":0.1,"mobileStageStyle":{"width":180,"height":166},"motionPreloadStrategy":"IDLE","position":[-10,35],"scale":0.15,"stageStyle":{"width":250,"height":250}}],parentElement:document.body,primaryColor:"var(--btn-bg)",sayHello:false,tips:{style: {"width":230,"height":120,"left":"calc(50% - 20px)","top":"-100px"},mobileStyle: {"width":180,"height":80,"left":"calc(50% + 50px)","top":"-100px"},idleTips:{interval:1000,message:["你好呀~","欢迎来到我的小站~","要来点咖啡吗~","你复制了什么内容呢?记得注明出处哦~"],wordTheDay:function(wordTheDayData){
   return `${wordTheDayData.hitokoto}    by.${wordTheDayData.from}`;
 }
 }},then:"(oml2d)=>{\n  setTimeout(() => {\n    oml2d.tipsMessage('hello world', 3000, 10);\n  }, 8000);\n}\n"});</script><!-- hexo injector body_end end --></body>
